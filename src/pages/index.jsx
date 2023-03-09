@@ -342,7 +342,7 @@ export default function Home({ articles }) {
             你也可以找到源码。
             <br></br>
             <br></br>
-            我正在为最新的创业项目招募技术合作伙伴，如你对感兴趣，尽快联系我。不限于iOS，安卓，Java，python和react。请用邮箱与我联系，并附带简历。liseami@qq.com
+            我正在为最新的创业项目招募技术合作伙伴，如你对感兴趣，尽快联系我。不限于iOS，安卓，Java，python和react。请用邮箱与我联系，并附带简历。yangyonghai9125@hotmail.com
           </p>
         </div>
         {/* 产品 */}
@@ -371,22 +371,22 @@ function SocialLinks() {
   return (
     <div className="mt-6 flex gap-6">
       <SocialLink
-        href="https://v.douyin.com/hfLkMQV/"
+        href="https://v.douyin.com/SaGYYxc/"
         aria-label="Follow on 抖音"
         icon={TikTokIcon}
       />
       <SocialLink
-        href="https://space.bilibili.com/26317883/"
+        href="https://space.bilibili.com/6580304/"
         aria-label="Follow on Bilibili"
         icon={BiliBiliIcon}
       />
       <SocialLink
-        href="https://github.com/liseami"
+        href="https://github.com/iamflowerdog"
         aria-label="Follow on GitHub"
         icon={GitHubIcon}
       />
       <SocialLink
-        href="https://twitter.com/liseami1"
+        href="https://twitter.com/mryang123456"
         aria-label="Follow on Twitter"
         icon={TwitterIcon}
       />
