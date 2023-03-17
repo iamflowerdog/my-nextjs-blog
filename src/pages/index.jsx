@@ -323,26 +323,20 @@ export default function Home({ articles }) {
             这是我的<CopyButton content="yangyonghai9125" btntitle='私人微信' className="text-emerald-600" />，注明来意。
           <br></br>
           <br></br>
-            写小说、代码和剧本。<Link href="https://apps.apple.com/cn/app/%E8%BD%AC%E5%B1%B1-%E8%A1%8C%E4%B8%BA%E4%B9%A0%E6%83%AF%E5%A1%91%E9%80%A0/id6444640823" className="text-emerald-600">转山App</Link>开发者。
-            过去在
-            <Link href="https://www.sprit.vip/" className="text-emerald-600">个人博客</Link>,
-            <Link href="https://me.sprit.com/" className="text-emerald-600">新致软件</Link>。
-            现在是一名独立开发者，居无定所，录制课程和视频。
-            <Link href="/speaking" className="text-emerald-600">点击这里</Link>
-            可以找到我录制的iOS开发课程。文学方面，出版作品有
-            <Link href="https://book.douban.com/subject/26990080/" className="text-emerald-600">《坏一坏》</Link>、
-            <Link href="https://book.douban.com/subject/34865437/" className="text-emerald-600">《人生灿灿》</Link>，另外，有几篇
-            <Link href="/articles" className="text-emerald-600">本站可阅读的文章</Link>。技术方面，
-            目前在畅想和构建一系列开放性的产品，比如<Link href="https://www.revome.cn" className="text-emerald-600">Revome | Web3房地产项目</Link>。
+            最近比较着迷ChatGPT，业余时间自己使用ChatGPT的API，自己部署了一个<Link href="https://chat.sprit.vip/" className="text-emerald-600">聊天工具</Link>。
+            {/* <Link href="https://www.sprit.vip/" className="text-emerald-600">个人旧版本博客</Link>, */}
+            {/* <Link href="https://me.sprit.vip/" className="text-emerald-600">个人新博客</Link>。 */}
+            技术方面，目前在畅想和构建一系列开放性的产品，比如<Link href="https://chat.sprit.vip/" className="text-emerald-600">Yang | Web</Link>。
             另外，如果你对这个网站的实现方式感兴趣：它使用
             <Link href="https://nextjs.org/" className="text-emerald-600">Next.js</Link>、
             <Link href="https://reactjs.org/" className="text-emerald-600">React</Link>搭建，
             也使用了基于
             <Link href="https://tailwindcss.com/" className="text-emerald-600">TailwindCSS</Link>的模版。在下方的Github连接中，
             你也可以找到源码。
+            <Link href="/articles" className="text-emerald-600">本站可阅读的文章</Link>。
             <br></br>
             <br></br>
-            我正在为最新的创业项目招募技术合作伙伴，如你对感兴趣，尽快联系我。不限于iOS，安卓，Java，python和react。请用邮箱与我联系，并附带简历。yangyonghai9125@hotmail.com
+            我的理想生活：“莫（mù）春者，春服既成，冠者五六人，童子六七人，浴乎沂（yí），风乎舞雩(yú)，咏而归。”
           </p>
         </div>
         {/* 产品 */}

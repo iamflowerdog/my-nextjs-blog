@@ -9,36 +9,38 @@ import renshengcancan from '@/images/photos/renshengcancan.png'
 import chuntianjianshi from '@/images/photos/chuntianjianshi.webp'
 import lifelooplogo from '@/images/photos/lifelooplogo.png'
 import Link from 'next/link'
+import chatgptlogo from '@/images/photos/chatGPTAvatar.webp'
+import jenkinslogo from '@/images/photos/jenkins.png'
 
 const projects = [
   {
-    name: '转山 - 公测中',
+    name: '天马行空',
     description:
-      '个人行为习惯管理软件.',
-    link: { href: 'https://apps.apple.com/cn/app/%E8%BD%AC%E5%B1%B1-%E8%A1%8C%E4%B8%BA%E4%B9%A0%E6%83%AF%E5%A1%91%E9%80%A0/id6444640823)', label: '点击加入公测' },
+      '奇思妙想.',
+    link: { href: 'https://www.sprit.vip/', label: '点击查看' },
     logo: lifelooplogo,
   },
   {
-    name: '《坏一坏》',
+    name: 'ChatGPT',
     description:
-      '小说集。凉炘的小说虽然以“坏一坏”冠名，但其实坏中有深情，我能读到他骨子里藏不住深情款款。 ———蔡崇达。',
-    link: { href: 'https://book.douban.com/subject/26990080/', label: '豆瓣 - 坏一坏 评分8.4' },
-    logo: huaiyihuai,
+      '基于ChatGPT-3.5二次开发的聊天工具',
+    link: { href: 'https://chat.sprit.vip/', label: '欢迎体验' },
+    logo: chatgptlogo,
   },
   {
-    name: '《人生灿灿》',
+    name: 'Jenkins',
     description:
-      '小说集。收录凉炘短篇小说十四篇，包括在“One·一个”App中高点击量与高赞的作品。',
-    link: { href: 'https://book.douban.com/subject/34865437/', label: '豆瓣 - 人生灿灿 评分7.0' },
-    logo: renshengcancan,
+      '上传代码，自动打包，发布',
+    link: { href: 'http://47.95.20.230:8080/', label: 'Deploy' },
+    logo: jenkinslogo,
   },
-  {
-    name: '《春天简史》',
-    description:
-      '编剧/演员',
-    link: { href: 'https://movie.douban.com/subject/35708474/', label: '豆瓣 - 春天简史' },
-    logo: chuntianjianshi,
-  },
+  // {
+  //   name: 'CSS demo',
+  //   description:
+  //     'test',
+  //   link: { href: 'http://47.95.20.230:4001/', label: '豆瓣 - 春天简史' },
+  //   logo: chuntianjianshi,
+  // },
 ]
 
 function LinkIcon(props) {
