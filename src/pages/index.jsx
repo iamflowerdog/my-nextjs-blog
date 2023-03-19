@@ -323,7 +323,7 @@ export default function Home({ articles }) {
             这是我的<CopyButton content="yangyonghai9125" btntitle='私人微信' className="text-emerald-600" />，注明来意。
           <br></br>
           <br></br>
-            最近比较着迷ChatGPT，业余时间自己使用ChatGPT的API，自己部署了一个<Link href="https://chat.sprit.vip/" className="text-emerald-600">聊天工具</Link>。
+            最近比较着迷ChatGPT，业余时间使用ChatGPT的API，部署了一个<Link href="https://chat.sprit.vip/" className="text-emerald-600">聊天工具</Link>。
             {/* <Link href="https://www.sprit.vip/" className="text-emerald-600">个人旧版本博客</Link>, */}
             {/* <Link href="https://me.sprit.vip/" className="text-emerald-600">个人新博客</Link>。 */}
             技术方面，目前在畅想和构建一系列开放性的产品，比如<Link href="https://chat.sprit.vip/" className="text-emerald-600">Yang | Web</Link>。
