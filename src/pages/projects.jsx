@@ -24,7 +24,7 @@ const projects = [
     name: 'ChatGPT',
     description:
       '基于ChatGPT-3.5二次开发的聊天工具',
-    link: { href: 'https://chat.sprit.vip/', label: '欢迎体验' },
+    link: { href: 'https://ai.sprit.vip/', label: 'ChatGPT' },
     logo: chatgptlogo,
   },
   {
@@ -34,12 +34,19 @@ const projects = [
     link: { href: 'http://47.95.20.230:8080/', label: 'Deploy' },
     logo: jenkinslogo,
   },
+  {
+    name: 'Web Matrix',
+    description:
+      'test',
+    link: { href: 'http://47.95.20.230:4001/', label: '个人网站索引' },
+    logo: chuntianjianshi,
+  },
   // {
-  //   name: 'CSS demo',
+  //   name: 'ChatGPT',
   //   description:
-  //     'test',
-  //   link: { href: 'http://47.95.20.230:4001/', label: '豆瓣 - 春天简史' },
-  //   logo: chuntianjianshi,
+  //     '基于ChatGPT-3.5二次开发的聊天工具',
+  //   link: { href: 'https://chat.sprit.vip/', label: 'ChatGPT备份' },
+  //   logo: chatgptlogo,
   // },
 ]
 
