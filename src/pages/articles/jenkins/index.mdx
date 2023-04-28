@@ -1,0 +1,153 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import img_ssh from './img/github_sshkey.png'
+import source_code from './img/source-code.png'
+import img_status from './img/build-status.png'
+import jenkins_private from './img/jenkins_private.png'
+import general_config from './img/general-config.png'
+import github_webhook from './img/github-webhook.png'
+import jenkins_trigger from './img/jenkins-trigger.png'
+import jenkins_nodejs from './img/jenkins-nodejs.png'
+import jenkins_env from './img/jenkins-build-env.png'
+import jenkins_console from './img/console.png'
+import success from './img/success.png'
+import gitlab_webhook from './img/gitlab-webhook.png'
+import gitlab_advanced from './img/gitlab-advanced.png'
+import gitlab_trigger from './img/gitlab-trigger.png'
+import Image from 'next/image'
+export const meta = {
+  author: '杨勇海',
+  date: '2021-05-31',
+  title: 'Jenkins自动化部署',
+  description:
+    '代码提交到Github，通过Jenkins自动打包，更新',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+———-
+
+第一次写博客，今后我准备把自己的想法或者实践，以博客的形式分享给大家，对外输出的同时，也有助于自己的技术提升。
+直接分享这次实践的结果，代码有更新，push到远端，网站自动更新。
+具体实现原理，远端收到更新，通过一个hook，告诉Jenkins去build代码，Jenkins在编译代码后会执行一个shell脚本，然后把编译后的代码转移到Nginx代理的目录下。下面是实现过程
+
+### 部署Jenkins
+我购买的是阿里云的服务器，操作系统是CentOS7，本次就以CentOS7为例。
+
+#### 1.准备工作
+Jenkins的宿主环境是java，所以我们需要安装java, 如果你的服务器已经安装过java可以跳过此步骤。  
+`yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel`
+
+#### 2.安装
+* 先下载到本地  
+`sudo wget -O /etc/yum.repos.d/Jenkins.repo https://pkg.Jenkins.io/redhat-stable/Jenkins.repo`
+* 导出密钥（若之前已从Jenkins导入过密钥，“rpm--import”将失败，请忽略，继续执行下面)  
+`sudo rpm --import https://pkg.Jenkins.io/redhat-stable/Jenkins.io.key`
+* 安装Jenkins  
+`yum install -y Jenkins`
+* 查看Jenkins安装信息  
+`rpm -ql Jenkins`
+
+#### 3.配置和启动
+* 修改配置文件  
+`vim /etc/sysconfig/Jenkins`  
+Jenkins默认端口8080，若被占用或想更换端口，修改Jenkins_PORT的值Jenkins_PORT="端口号"
+* 启动Jenkins  
+`systemctl start Jenkins.service` 或者 `service Jenkins start`
+
+
+我使用的代码托管工具是GitHub, 服务器安装好Jenkins之后，下面我们来介绍怎么让Jenkins和GitHub关联起来，
+换言之，就是让Jenkins能pull到你在GitHub托管的代码。
+
+### 服务器和GitHub关联
+* 安装git  
+`yum install git`
+* 生成一个新的 SSH key  
+`ssh-keygen -t ed25519 -C "your_email@example.com"`
+* 把生成的 SSH key 的公钥添加到GitHub账户  
+`vim ~/.ssh/id_ed25519.pub` 可以看到服务器的公钥，复制文件里以你的邮箱为结尾的字符串
+然后到GitHub账户，找到 Settings--> SSH and GPG keys --> New SSH key 然后把刚才复制那段字符串粘贴到输入框里面
+然后点击 Add SSH key, 添加成功后，可以在你的SSH keys 列表看到最近的读写记录。  
+<Image src={img_ssh} alt="" />
+如果你看到这个，现在只能说明你的服务器和GitHub已经关联起来，怎么让Jenkins可以直接pull代码，下面接着说。
+
+### Jenkins和GitHub关联
+* 登陆Jenkins，找到全局凭据，把服务器的密钥copy进来  
+<Image src={jenkins_private} alt="" />
+
+### 任务和GitHub关联
+前面只是把Jenkins和GitHub关联起来了，下面我们还要具体到某一个任务。
+* 在Jenkins创建一个自由风格的任务，General选择GitHub项目，把GitHub上的一个仓库地址复制过来(配置前，需要给Jenkins安装Git、GitHub、GitLab plugins这些插件)  
+<Image src={general_config} alt="" />
+
+* 源码管理选择 Git，把GitHub仓库地址一样复制过来，Credentials选择我们在上一步添加的私钥，如果错误会报error，正确就一切正常
+源码浏览器选择githubweb，URL也是一样复制过来  
+<Image src={source_code} alt="" />
+
+* 构建触发器
+这一步是当我们往GitHub提交代码的时候，GitHub会调用这个api，这就需要我们在GitHub上的仓库中配置Jenkins的地址  
+在GitHub的某一个仓库中，选择 settings -> Webhooks -> Add webhook  
+<Image src={github_webhook} alt="" />
+Jenkins 构建触发器 配置选上 GitHub hook trigger for GITScm polling  
+<Image src={jenkins_trigger} alt="" />
+
+* 构建环境
+我的个人项目是用VueJs编写的，打包的时候需要用到NPM，那样Jenkins就需要安装NodeJS插件。  
+安装的插件步骤，先去Jenkins插件管理安装NodeJS插件，然后在全局工具配置里面新增NodeJS安装
+<Image src={jenkins_nodejs} alt="" />
+然后Jenkins任务配置，构建环境 勾选上Node
+<Image src={jenkins_env} alt="" />
+
+### 代码提交，自动部署
+我们测试一下刚才的成果，push一行测试代码，到GitHub后，配置的webhook会触发Jenkins，这时任务状态栏会有一个状态栏  
+<Image src={img_status} alt="" />
+点击去查看详情，点击控制台输出  
+<Image src={jenkins_console} alt="" />
+最后面可以看到输出结果，有没有看到我们熟悉的Success？  
+<Image src={success} alt="" />
+
+
+### 部署Nginx
+前面我们只是把我们的项目构建成功了，外面的用户的还是看不到我们的页面，这时就需要用到nginx。
+* 安装nginx
+`sudo yum -y install nginx `
+* 配置nginx
+`vim /etc/nginx/nginx.conf`
+```
+server {
+        listen       4001 default_server;
+        server_name  _;
+
+        location / {
+            root /yang/web/css_world/dist;
+            index index.html index.htm;
+        }
+    }
+
+```
+此处我配置的端口是4001，在阿里云上需要把这个端口号放开，nginx配置后需要重启一下服务。
+
+* jenkins打包之后的shell脚本也要修改一下。
+```
+#!/bin/bash
+cd $WORKSPACE
+npm install
+npm run build
+tar -cvf dist.tar ./dist
+tar xvf ./dist.tar -C /yang/web/css_world/
+```
+
+配置完之后，我们再提交一下代码，测试我们刚才的配置是否生效，访问域名+端口号，可以看到页面就说明已经成功了。
+
+### GitLab和Jenkins关联
+上面我们测试是用的GitHub，如果你想要用GitLab，整个工作流程差不多，下面我分享一下Github和Gitlab不一样的地方。
+<Image src={gitlab_trigger} alt="" />
+github的构建触发器选择之后，后面有一个高级按钮，点击会出现一个生成token的按钮，按照下面图片的配置，会给一个token
+<Image src={gitlab_advanced} alt="" />
+配置完之后，登陆自己的gitlab，找到项目 setting -> webhook -> 添加刚才在Jenkins配置时候提示的URL和Token，添加就好了
+<Image src={gitlab_webhook} alt="" />
+
+
+### 总结
+至此我们的代码就可以实现自动部署和更新了，如果你是第一次尝试，可能会遇到这样那样的问题，很正常，我刚开始也是遇到很多坑，
+遇到问题不要着急，看log日志，google一下，博客排版不怎么好，如果有错别字欢迎纠正，也欢迎你给我留言，博客右上角connect可以看到我的GitHub地址，谢谢。
+
