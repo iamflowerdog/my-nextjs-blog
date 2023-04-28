@@ -38,15 +38,15 @@ export default function ArticlesIndex({ articles }) {
   return (
     <>
       <Head>
-        <title>文章 - 技术博客，小说，剧本，电影和其他</title>
+        <title>文章 - 技术博客，学习，生活</title>
         <meta
           name="description"
           content="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
         />
       </Head>
       <SimpleLayout
-        title="技术博客，小说，剧本，电影和其他"
-        intro="收藏这个页面，可以帮助你随时查阅我的分享"
+        title="技术博客，学习，生活和其他"
+        intro="愿我们都早日实现 - Work life balance"
       >
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           <div className="flex max-w-3xl flex-col space-y-16">
