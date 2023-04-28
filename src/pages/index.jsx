@@ -324,9 +324,7 @@ export default function Home({ articles }) {
           <br></br>
           <br></br>
             最近比较着迷ChatGPT，业余时间使用ChatGPT的API，部署了一个<Link href="https://ai.sprit.vip/" className="text-emerald-600">聊天工具</Link>。
-            {/* <Link href="https://www.sprit.vip/" className="text-emerald-600">个人旧版本博客</Link>, */}
-            {/* <Link href="https://me.sprit.vip/" className="text-emerald-600">个人新博客</Link>。 */}
-            技术方面，目前在畅想和构建一系列开放性的产品，比如<Link href="https://chat.sprit.vip/" className="text-emerald-600">Yang | Web</Link>。
+            技术方面，目前在畅想和构建一系列开放性的产品，比如<Link href="http://47.95.20.230:4001/" className="text-emerald-600">Yang | Web</Link>。
             另外，如果你对这个网站的实现方式感兴趣：它使用
             <Link href="https://nextjs.org/" className="text-emerald-600">Next.js</Link>、
             <Link href="https://reactjs.org/" className="text-emerald-600">React</Link>搭建，
