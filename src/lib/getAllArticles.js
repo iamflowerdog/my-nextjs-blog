@@ -13,7 +13,7 @@ async function importArticle(articleFilename) {
 }
 
 export async function getAllArticles() {
-  let articleFilenames = await glob(['*.mdx', '*/index.mdx'], {
+  let articleFilenames = await glob(['*.mdx', '*/index.mdx', '*/*.mdx'], {
     cwd: path.join(process.cwd(), 'src/pages/articles'),
   })
 
