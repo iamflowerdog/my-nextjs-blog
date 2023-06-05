@@ -61,25 +61,17 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              独立开发者。杨勇海
+              Web开发者。杨勇海
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
                 我对编程感兴趣。
               </p>
               <p>
-                从写小说，到写代码。之间的差异是巨大的。而一旦我越过了这种差异，我就知道没有什么是不可能的。
-                从前我研究罗曼·波兰斯基，福楼拜和陀翁，现在我痴醉于Next.js,React,SwiftUI和FastApi，这两
-                项所谓“研究”的动作没有什么不同，无非是“学习前人如何创造，并为后人留下一些创造”。
-                不得不说写小说和写代码所调用的神经元集群差异巨大，以至于我的大脑几乎经历了二次发育。
-                而自始至终，我从未感到真的忘记过什么，或者脑子不够用。从而我开始相信人的潜力无穷，并希望尽可能
-                拉拢更多的大脑开发者，加入跨学科创造的行列。我忽然意识到人一旦停止学习和涉足不同的领域，
-                就会被日益顽固的认知之墙所禁锢。刚学习SwiftUI不久后，我喜欢在论坛上和RN开发者们展开口水战。视图论证
-                原生的伟大。但后来我痴醉于Next.js，才意识到人之所以捍卫自己所学的东西并奉为圭臬，无非是因为他
-                的潜意识在惧怕别人所掌握的东西，而自己懒得跨越。
+                Talk is cheap, just show your code. 用代码改变世界
               </p>
               <p>
-                跨越，跨越，跨越现有的东西。痛击我们认知的疆界。
+                Good Good Study.
               </p>
               <p>
                 欢迎光临小站
