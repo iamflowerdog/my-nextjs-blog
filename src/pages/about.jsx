@@ -68,7 +68,7 @@ export default function About() {
                 我对编程感兴趣。
               </p>
               <p>
-                Talk is cheap, just show your code. 用代码改变世界
+                Talk is cheap, just show your code. 用软件驱动硬件，再用硬件改变世界。
               </p>
               <p>
                 Good Good Study.
