@@ -34,7 +34,7 @@ export default function Speaking() {
         <title>课程 - 课程报名</title>
         <meta
           name="课程报名"
-          content="赵纯想出品 - iOS开发课程（购前可微信zhaochunxiang1109咨询）"
+          content="杨勇海"
         />
       </Head>
       <SimpleLayout
