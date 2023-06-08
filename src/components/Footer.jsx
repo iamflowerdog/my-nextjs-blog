@@ -23,6 +23,7 @@ export function Footer() {
               <div className="flex gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
                 <NavLink href="/about">关于我</NavLink>
                 <NavLink href="/projects">产品</NavLink>
+                <NavLink href="/articles">文章</NavLink>
                 <NavLink href="/speaking">课程</NavLink>
                 <NavLink href="/uses">更多</NavLink>
               </div>
