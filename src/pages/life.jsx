@@ -38,15 +38,15 @@ export default function ArticlesIndex({ articles }) {
   return (
     <>
       <Head>
-        <title>文章 - 技术博客</title>
+        <title>文章 - 生活博客</title>
         <meta
           name="description"
-          content="杨勇海技术博客"
+          content="杨勇海生活博客"
         />
       </Head>
       <SimpleLayout
-        title="文章 - 技术博客"
-        intro="Never Settle"
+        title="文章 - 生活博客"
+        intro="愿我们都早日实现 - Work life balance"
       >
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           <div className="flex max-w-3xl flex-col space-y-16">
@@ -66,7 +66,7 @@ export async function getStaticProps() {
   // console.log(123)
   return {
     props: {
-      articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
+      articles: (await getAllArticles('life')).map(({ component, ...meta }) => meta),
     },
   }
 }

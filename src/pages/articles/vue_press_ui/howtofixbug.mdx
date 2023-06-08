@@ -1,0 +1,60 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: '杨勇海',
+  date: '2021-08-17',
+  title: 'How to fix bugs?',
+  description:
+    'Kibana, bug fix',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+
+作为程序员经常和bug打交道，那么怎么解决bug呢，今天我就总结一下自己解决bug的思路，这篇博客就以我在实际开放中遇到
+的一个bug为例，一步一步的复现我是怎么解决这个bug的。
+
+#### 首先描述一下这个bug导致的结果：我们的项目在Safari浏览器里面Tab页签的logo变成kibana的logo了。
+
+![kibana](/images/kibana/kibana.png)
+
+这个bug是我们内部测试发现，不影响产品的功能使用，处理的优先级没有那么高，我就在redmine上给自己提了一个bug，它的生日是2021年3月5日。
+
+![bug](/images/kibana/redmine.png)
+
+### 1. 快速定位到导致bug的原因
+在safari中tab logo会变成kibana，那就肯定和kibana有关系，我就在Safari访问了一下kibana，果然复现了，我们的项目中部署了kibana，通过
+前端可以跳转到kibana，在Safari中跳转的时候，我们自己的项目也会logo也被kibana替换了，在浏览器开发者
+工具element里面可以看到关于那个logo的代码：
+![kibana](/images/kibana/kibana_element.png)
+定位到问题，剩下就是怎么解决了，把这行代码删除应该就可以解决了
+### 2. 把遇到的问题简单的用英文描述一下
+上一步定位到问题，这一步开始搜索问题，对于英文不太好的同学可能要问了，用中文难道不行吗？我的建议是尽可能是使用英文，因为现代互联网上关于计算机知识
+的文档，英文占用了绝大部分，所以为了快速找到自己想要的东西，使用英文会节省很多时间。
+英文描述不一定要翻译的很精准，关键词有基本上就可以了，这个bug我的翻译结果就是：kibana logo icon in safari
+
+### 3. 通过google搜索引擎搜索遇到的问题
+一定要使用google，google和baidu是两个不同的世界，下面是google的搜索结果：
+![google](/images/kibana/google.png)
+
+### 4. 通过搜索结果，快读定位到和自己遇到类似情况的answer
+想要准确找到和自己遇到一模一样的问题的回答，的确很难，这就考验我们自己快速筛选的能力了，随着问题的深入，通过搜索引擎能得到的答案会越来越少。
+回到我们的bug，通过搜索结果，我发现，要解决这个问题，需要去部署kibana的服务器，修改kibana的配置文件，这里面就用服务器的一些知识，我去年由于对
+ubuntu不是很了解，这个bug的也是先是从1.0.0转移到1.1.0，再从1.1.0转移到1.5.0，毕竟这个优先级不是很高，领导也同意，导致这个bug一直在搁置，
+持续5个月没有解决
+![bug](/images/kibana/redmine1.png)
+### 5. Just try it.
+有些bug今天不知道怎么解决，过几个月，可能心里就有答案了，因为你的技术积累不断增加，视野也越来越开阔，当时想不出办法，可能是陷入其中，等过了一段时间
+就想到答案了。随着我对ubuntu的越来越多的了解，对数据库和shell脚本的知识一点一点增加，这个bug在我眼里也变的不再那么强大，下面是通过搜索结果匹配到
+可能对我有用的答案：
+![google](/images/kibana/google1.png)
+这个bug的解决方法是，
+1. 在kibana安装后，修改他编译源文件，他用的模板是jade格式，我们找到这个文件，删除在第一步找到问题的那行代码，我在自己的虚拟机上
+测试了一下，发现果然可以了，心中暗自窃喜。
+![jade](/images/kibana/jada1.png)
+2. 由于我们的项目需要手动安装，所以还需要在shell脚本里面修改一下：
+![google](/images/kibana/setup.png)
+
+### 总结
+解决这个bug用到了许多知识，比如定位问题，用到排除法，控制变量法等等，这个bug的生命终于在2021年8月13日结束了，感谢它让我也成长了不少。
+![vscode](/images/kibana/vscode.png)

@@ -1,9 +1,9 @@
 import glob from 'fast-glob'
 import * as path from 'path'
 
-async function importArticle(articleFilename) {
+async function importArticle(articleFilename, folder) {
   let { meta, default: component } = await import(
-    `../pages/articles/${articleFilename}`
+    `../pages/${folder}/${articleFilename}`
   )
   return {
     slug: articleFilename.replace(/(\/index)?\.mdx$/, ''),
@@ -12,12 +12,14 @@ async function importArticle(articleFilename) {
   }
 }
 
-export async function getAllArticles() {
+export async function getAllArticles(folder='articles') {
   let articleFilenames = await glob(['*.mdx', '*/index.mdx', '*/*.mdx'], {
-    cwd: path.join(process.cwd(), 'src/pages/articles'),
+    cwd: path.join(process.cwd(), `src/pages/${folder}`),
   })
 
-  let articles = await Promise.all(articleFilenames.map(importArticle))
+  let articles = await Promise.all(articleFilenames.map((file) => {
+    return importArticle(file, folder)
+  }))
 
   return articles.sort((a, z) => new Date(z.date) - new Date(a.date))
 }
