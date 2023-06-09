@@ -67,9 +67,9 @@ export default function Document() {
           href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
         />
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8F7LE48X67"></script>
-        <script dangerouslySetInnerHTML={{ __html: googletrack }} />
-        <script dangerouslySetInnerHTML={{ __html: baidutrack }} />
+        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-8F7LE48X67"></script> */}
+        {/* <script dangerouslySetInnerHTML={{ __html: googletrack }} /> */}
+        {/* <script dangerouslySetInnerHTML={{ __html: baidutrack }} /> */}
 
       </Head>
       <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
