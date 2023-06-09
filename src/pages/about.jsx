@@ -43,7 +43,7 @@ export default function About() {
       <Head>
         <title>关于我 - 独立开发者</title>
         <meta
-          name="关于赵纯想"
+          name="关于杨勇海"
           content="我对创造感兴趣。而不局限于小说、软件，和剧本。创造的激情是我作为人生的意义所一直保护的东西， 尽管它曾屡受打击，但总能从我乐天派的心地上重新抽丝剥茧。"
         />
       </Head>

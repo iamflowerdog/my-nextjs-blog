@@ -121,6 +121,7 @@ function MobileNavigation(props) {
             </div>
             <nav className="mt-6">
               <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
+                <MobileNavItem href="/">首页</MobileNavItem>
                 <MobileNavItem href="/about">关于我</MobileNavItem>
                 <MobileNavItem href="/articles">技术</MobileNavItem>
                 <MobileNavItem href="/life">生活</MobileNavItem>
@@ -162,6 +163,7 @@ function DesktopNavigation(props) {
   return (
     <nav {...props}>
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+        <NavItem href="/">首页</NavItem>
         <NavItem href="/about">关于我</NavItem>
         <NavItem href="/articles">技术</NavItem>
         <NavItem href="/life">生活</NavItem>
@@ -409,7 +411,7 @@ export function Header() {
                   </AvatarContainer>
                 )}
               </div>
-              <div className="flex flex-1 justify-end md:justify-center">
+              <div className="flex flex-2 justify-end md:justify-center">
                 <MobileNavigation className="pointer-events-auto md:hidden" />
                 <DesktopNavigation className="pointer-events-auto hidden md:block" />
               </div>
