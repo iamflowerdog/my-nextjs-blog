@@ -304,7 +304,7 @@ export default function Home({ articles }) {
 
       <Head>
         <title>
-          杨勇海个人网站 - 生活，产品，随想和博客
+          杨勇海个人网站 - 生活，随想和博客
         </title>
         <meta
           name="杨勇海个人网站"
