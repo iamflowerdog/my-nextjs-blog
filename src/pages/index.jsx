@@ -304,17 +304,17 @@ export default function Home({ articles }) {
 
       <Head>
         <title>
-          杨勇海个人网站 - 生活，随想和博客
+        如何做一个前端开发 - 生活，随想和博客
         </title>
         <meta
-          name="杨勇海个人网站"
-          content="杨勇海个人网站"
+          name="如何做一个前端开发"
+          content="如何做一个前端开发"
         />
       </Head>
       <Container className="mt-24">
         <div className="max-w-2xl pb-24">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            杨勇海个人网站
+            如何做一个前端开发
           </h1>
 
           {/* 联系方式连接 */}
