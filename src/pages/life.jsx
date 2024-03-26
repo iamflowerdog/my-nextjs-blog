@@ -66,7 +66,7 @@ export async function getStaticProps() {
   // console.log(123)
   return {
     props: {
-      articles: (await getAllArticles('life')).map(({ component, ...meta }) => meta),
+      articles: (await getAllArticles(['life'])).map(({ component, ...meta }) => meta),
     },
   }
 }

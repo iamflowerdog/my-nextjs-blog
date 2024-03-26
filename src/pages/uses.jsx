@@ -4,6 +4,16 @@ import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import Link from 'next/link'
+import { Container } from '@/components/Container'
+import CopyButton from '@/components/CopyBtn'
+import { ProjectList } from '@/pages/projects'
+import {
+  TikTokIcon,
+  GitHubIcon,
+  TwitterIcon,
+  BiliBiliIcon
+
+} from '@/components/SocialIcons'
 
 function ToolsSection({ children, ...props }) {
   return (
@@ -26,6 +36,41 @@ function Tool({ title, href, children }) {
   )
 }
 
+function SocialLinks() {
+  return (
+    <div className="mt-6 flex gap-6">
+      <SocialLink
+        href="https://v.douyin.com/SaGYYxc/"
+        aria-label="Follow on 抖音"
+        icon={TikTokIcon}
+      />
+      <SocialLink
+        href="https://space.bilibili.com/6580304/"
+        aria-label="Follow on Bilibili"
+        icon={BiliBiliIcon}
+      />
+      <SocialLink
+        href="https://github.com/iamflowerdog"
+        aria-label="Follow on GitHub"
+        icon={GitHubIcon}
+      />
+      <SocialLink
+        href="https://twitter.com/mryang123456"
+        aria-label="Follow on Twitter"
+        icon={TwitterIcon}
+      />
+    </div>
+  )
+}
+
+function SocialLink({ icon: Icon, ...props }) {
+  return (
+    <Link className="group -m-1 p-1" {...props}>
+      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
+    </Link>
+  )
+}
+
 export default function Uses() {
   return (
     <>
@@ -36,6 +81,36 @@ export default function Uses() {
           content="自用分享。"
         />
       </Head>
+      <Container className="mt-24">
+        <div className="max-w-2xl pb-24">
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+            如何做一个前端开发
+          </h1>
+
+          {/* 联系方式连接 */}
+          <SocialLinks />
+          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+            这是我的<CopyButton content="yangyonghai9125" btntitle='私人微信' className="text-emerald-600" />，注明来意。
+          <br></br>
+          <br></br>
+            最近比较着迷ChatGPT，业余时间使用ChatGPT的API，部署了一个<Link href="https://ai.sprit.vip/" className="text-emerald-600">聊天工具</Link>。
+            技术方面，目前在畅想和构建一系列开放性的产品，比如<Link href="http://47.95.20.230:4001/" className="text-emerald-600">Yang | Web</Link>。
+            另外，如果你对这个网站的实现方式感兴趣：它使用
+            <Link href="https://nextjs.org/" className="text-emerald-600">Next.js</Link>、
+            <Link href="https://reactjs.org/" className="text-emerald-600">React</Link>搭建，
+            也使用了基于
+            <Link href="https://tailwindcss.com/" className="text-emerald-600">TailwindCSS</Link>的模版。在下方的Github连接中，
+            你也可以找到源码。
+            <Link href="/articles" className="text-emerald-600">本站可阅读的文章</Link>。
+            <br></br>
+            <br></br>
+            我的理想生活：“莫（mù）春者，春服既成，冠者五六人，童子六七人，浴乎沂（yí），风乎舞雩(yú)，咏而归。”
+          </p>
+        </div>
+        {/* 产品 */}
+        <ProjectList />
+        {/* <Products /> */}
+      </Container>
       <SimpleLayout
         title="介绍一些我使用的东西"
         intro="我的脚手架，“技术日用品”，不限于硬件，软件和框架."

@@ -12,14 +12,19 @@ async function importArticle(articleFilename, folder) {
   }
 }
 
-export async function getAllArticles(folder='articles') {
-  let articleFilenames = await glob(['*.mdx', '*/index.mdx', '*/*.mdx'], {
-    cwd: path.join(process.cwd(), `src/pages/${folder}`),
-  })
+export async function getAllArticles(folders=['articles', 'life']) {
+  let articles = await Promise.all(folders.flatMap(async (folder) => {
+    let articleFilenames = await glob(['*.mdx', '*/index.mdx', '*/*.mdx'], {
+      cwd: path.join(process.cwd(), `src/pages/${folder}`),
+    })
 
-  let articles = await Promise.all(articleFilenames.map((file) => {
-    return importArticle(file, folder)
+    return Promise.all(articleFilenames.map((file) => {
+      return importArticle(file, folder)
+    }))
   }))
+
+  // Flatten the array of articles
+  articles = articles.flat()
 
   return articles.sort((a, z) => new Date(z.date) - new Date(a.date))
 }
