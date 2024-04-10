@@ -23,7 +23,7 @@ function Article({ article }) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
-        <Card.Title href={`/life/${article.slug}`}>
+        <Card.Title href={`/${article.folder}/${article.slug}`}>
           {article.title}
         </Card.Title>
         <Card.Eyebrow

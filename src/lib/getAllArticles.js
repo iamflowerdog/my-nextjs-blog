@@ -8,6 +8,7 @@ async function importArticle(articleFilename, folder) {
   return {
     slug: articleFilename.replace(/(\/index)?\.mdx$/, ''),
     ...meta,
+    folder,
     component,
   }
 }
