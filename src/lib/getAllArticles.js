@@ -20,6 +20,7 @@ export async function getAllArticles(folders=['articles', 'life']) {
     })
 
     return Promise.all(articleFilenames.map((file) => {
+      console.log(file, folder)
       return importArticle(file, folder)
     }))
   }))

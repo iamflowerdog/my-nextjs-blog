@@ -1,0 +1,72 @@
+
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Yang',
+  date: '2025-02-14',
+  title: '中国人自己的大模型，DeepSeek',
+  description:
+    '全程干货，自己部署',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+春节前，中国的DeepSeek大火，它的训练成本比OpenAI小了接近100倍，让美股大跌，我在支付宝买的美股纳斯达克综合指数基金也跌了3个点，英伟达的股票直接跌了18个点，这个大模型
+真是太厉害，如此厉害，我一定要尝试一下，春节前就使用上了，体验了一下，效果的确很不错，和ChatGPT很接近，并且它还是免费的。
+
+正式上班后，再去使用，发现DeepSeek官网总是崩溃，于是着手用公司的机器自己部署，下面是我的部署步骤，尽量选择科学上哇那个。
+
+
+
+1. 先介绍一下我的安装环境
+  ```
+  systemOS       Ubuntu 24.04.1 LTS
+  system         Precision 3660 (0A9F)
+  processor      12th Gen Intel(R) Core(TM) i9-12900K
+  memory         32GiB System Memory
+  storage        Samsung SSD 980 PRO 1TB
+  GPU            NVIDIA GeForce RTX 3060 Ti 8192MiB
+  ```
+
+2. 在Ubuntu下载Ollama
+
+  `curl -fsSL https://ollama.com/install.sh | sh`
+
+  运行 ollama `ollama serve`, 一路输入yes
+  
+3. 通过ollama下载DeepSeek模型
+
+  `ollama run deepseek-r1:7b`
+
+  这一步安装成功后，就可以在terminal对话了
+
+4. 安装 Open WebUI
+
+  这里官网提供用Python和Docker两种安装方法，用Python方法我尝试了两次没有成功，比较麻烦，于是我选择使用docker安装
+
+  ```
+  docker run -d -p 3000:8080 --gpus all --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:cuda
+  ```
+
+  这里我的显卡是NVD的，如果不是可以去掉 `--gpus all` 参数,
+
+  `-e OLLAMA_BASE_URL=https://example.com`  参数可以修改ollama的地址
+
+  这里我遇到一个问题，Open WebUI已经启动了，通过 `localhost:3000` 也能访问到GUI，但是没有获取docker容器外，Ubuntu宿主机安装的Deepseek模型，这里官方提供了一种方法，可以试试
+
+  ```
+  Open WebUI: Server Connection Error
+
+  If you're experiencing connection issues, it’s often due to the WebUI docker container not being able to reach the Ollama server at 127.0.0.1:11434 (host.docker.internal:11434) inside the container . 
+  Use the --network=host flag in your docker command to resolve this. Note that the port changes from 3000 to 8080, resulting in the link: http://localhost:8080.
+  ```
+
+  但是这样记得GUI端口就改成 `8080`了
+
+5. 部署结果，成功了，就可以愉快聊天了
+
+![openwebui](/images/tech/openwebui.png)
+
+6. 喂大模型自己的数据
+
+ 待更新
