@@ -63,6 +63,28 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
 
   但是这样记得GUI端口就改成 `8080`了
 
+
+  另外我自己的解决docker不能访问11434端口的解决办法
+
+  ```
+    sudo vim /etc/systemd/system/ollama.service
+    查看环境变量位置
+    EnvironmentFile=/etc/environment
+
+    查看 ollama serve -h
+
+    OLLAMA_HOST                IP Address for the ollama server (default 127.0.0.1:11434)
+
+    这里可以确认 ollama 只监听本地的11434，docker内的环境是隔离的，不能访问11434
+
+    sudo /etc/environment
+
+    把 OLLAMA_HOST=0.0.0.0:11434 加到环境变量最后
+
+    重启 ollama
+    
+  ```
+
 5. 部署结果，成功了，就可以愉快聊天了
 
 ![openwebui](/images/tech/openwebui.png)
