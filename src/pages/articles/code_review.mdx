@@ -81,9 +81,12 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
 由于这个开源项目 只有钉钉的robot消息，但是我们公司用企业微信，需要自己魔改，把企业微信的robot填进去，正好之前自己做了一个 Jenkins打包通知 企业微信robot，这次可以直接拿来用
 
 * 创建企业微信robot
-![create_wechat_rebot](/images/tech/create_wechat_rebot.png)
+![create_wechat_rebot](/images/tech/create_wechat_robot.png)
 
 创建成功后，企业微信会给你一个 WECHAT_URL
+
+
+* 发送消息给 Robot
 
 ```
 import requests
