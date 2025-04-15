@@ -17,6 +17,7 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
 正式上班后，再去使用，发现DeepSeek官网总是崩溃，于是着手用公司的机器自己部署，下面是我的部署步骤，尽量选择科学上哇那个。
 
 
+### 安装Ollama
 
 1. 先介绍一下我的安装环境
   ```
@@ -26,6 +27,8 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
   memory         32GiB System Memory
   storage        Samsung SSD 980 PRO 1TB
   GPU            NVIDIA GeForce RTX 3060 Ti 8192MiB
+
+  ollama 可能需要自备🪜
   ```
 
 2. 在Ubuntu下载Ollama
@@ -33,6 +36,7 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
   `curl -fsSL https://ollama.com/install.sh | sh`
 
   运行 ollama `ollama serve`, 一路输入yes
+
   
 3. 通过ollama下载DeepSeek模型
 
@@ -40,7 +44,72 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
 
   这一步安装成功后，就可以在terminal对话了
 
-4. 安装 Open WebUI
+4. ollama API 端口暴露出来（💡 Ollama 的 API 接口默认只监听 localhost（127.0.0.1）接口，而不是所有外部网络地址。）
+
+  ```
+     # 在本机测试可以：
+
+     curl http://localhost:11434/api/generate \
+      -d '{
+        "model": "deepseek-r1:14b",
+        "prompt": "用一句话介绍中国的万里长城。",
+        "stream": false
+      }'
+
+    # 但是另外一台机器，不能用，可以ping通
+      curl http://192.168.0.107:11434/api/generate \
+      -d '{
+        "model": "deepseek-r1:14b",
+        "prompt": "用一句话介绍中国的万里长城。",
+        "stream": false
+      }'
+
+    # 解决办法
+ 
+    在 ~/.bashrc 文件后面 加上
+    export OLLAMA_HOST=0.0.0.0
+
+    保存后 
+    source ~/.bashrc 
+
+    然后重新运行
+    ollama serve
+  ```
+
+5. 创建 systemd 服务：让 Ollama 开机自启
+
+  vim /etc/systemd/system/ollama.service
+
+  ```
+  [Unit]
+  Description=Ollama Service
+  After=network-online.target
+
+  [Service]
+  ExecStart=/usr/local/bin/ollama serve
+  User=ollama
+  Group=ollama
+  Restart=always
+  RestartSec=3
+  Environment=OLLAMA_HOST=0.0.0.0
+  Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+
+  [Install]
+  WantedBy=default.target
+  ```
+
+  重启和验证
+
+  ```
+  sudo systemctl daemon-reload
+  sudo systemctl restart ollama
+
+  systemctl status ollama
+
+  ```
+### 安装 Open WebUI
+
+1. 安装 Open WebUI
 
   这里官网提供用Python和Docker两种安装方法，用Python方法我尝试了两次没有成功，比较麻烦，于是我选择使用docker安装
 
@@ -85,11 +154,11 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
     
   ```
 
-5. 部署结果，成功了，就可以愉快聊天了
+2. 部署结果，成功了，就可以愉快聊天了
 
 ![openwebui](/images/tech/openwebui.png)
 
-6. 喂大模型自己的数据
+3. 喂大模型自己的数据
 
    1. 添加Knowledge
 

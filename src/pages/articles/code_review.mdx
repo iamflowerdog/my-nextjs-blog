@@ -1,0 +1,126 @@
+
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Yang',
+  date: '2025-03-25',
+  title: '让DeepSeek来帮你Review代码',
+  description:
+    'GitLab, Code Review, DeepSeek, 企业微信，Robot',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+
+首先感谢开源社区的项目 [CodeReview](https://github.com/mimo-x/Code-Review-GPT-Gitlab)
+
+
+实现结果: 
+1. 项目有人提交merge代码，触发 Gitlab hook，
+2. Gitlab 把 git diff code 给 CodeReview service，CodeReview service 把git diff 交给Ollama 部署的DeepSeek处理，DeepSeek把AI review code 返回给 CodeReview service
+3. Python收到AI review，调用企业微信Robot，企业微信Robot把AI Review结果，发送到聊天群
+
+![code_robot](/images/tech/code_robot.png)
+
+
+
+### 一、用Root账号，创建项目的webhook
+
+![webhook](/images/tech/webhook.png)
+
+
+### 二、Clone `https://github.com/mimo-x/Code-Review-GPT-Gitlab` 代码，并运行起来
+
+* 我在Ubuntu 24机器上运行的 python3
+
+```
+  在项目目录中运行以下命令创建一个虚拟环境：
+
+  python -m venv venv
+
+  根据你的操作系统，激活虚拟环境：
+
+  source venv/bin/activate
+
+  在虚拟环境中运行：
+
+  pip install -r requirements.txt
+
+  退出虚拟环境
+
+  deactivate
+
+```
+
+* 后台运行 app.py
+```
+  你可以使用以下几种方式让 python3 ./app.py 在后台运行：
+
+  ⸻
+
+  1. 使用 nohup（推荐）
+
+  nohup python3 ./app.py > output.log 2>&1 &
+
+    •	nohup：忽略挂起信号，即使你关闭终端，进程也不会退出。
+    •	> output.log 2>&1：将标准输出和错误输出重定向到 output.log，防止进程因 I/O 问题被终止。
+    •	&：让进程在后台运行。
+
+  查看运行中的进程：
+
+  ps aux | grep app.py
+
+  停止进程：
+
+  kill <进程ID>
+
+```
+
+### 添加企业微信robot发送信息
+
+由于这个开源项目 只有钉钉的robot消息，但是我们公司用企业微信，需要自己魔改，把企业微信的robot填进去，正好之前自己做了一个 Jenkins打包通知 企业微信robot，这次可以直接拿来用
+
+* 创建企业微信robot
+![create_wechat_rebot](/images/tech/create_wechat_rebot.png)
+
+创建成功后，企业微信会给你一个 WECHAT_URL
+
+```
+import requests
+from config.config import *
+
+from response_module.abstract_response import AbstractResponseMessage
+
+class WechatResponse(AbstractResponseMessage):
+    def __init__(self, config):
+        super().__init__(config)
+
+    def send(self, message):
+        # 这里实现发送消息到 Slack 的逻辑
+        
+        WEBHOOK_URL = WECHAT_URL
+
+        message = {
+        "msgtype": "text",
+        "text": {
+            # "mentioned_list": ["@all"],
+            "content": message
+        }
+        }
+
+        response = requests.post(WEBHOOK_URL, json=message)
+        if response.status_code == 200:
+            print("WeChat 消息发送成功")
+        else:
+            print(f"WeChat 消息发送失败: {response.status_code} - {response.text}")
+        return True
+```
+
+
+
+### 运行成功
+
+完美😍
+
+
+
