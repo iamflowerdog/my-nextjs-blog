@@ -1,0 +1,31 @@
+
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Yang',
+  date: '2025-06-16',
+  title: 'Mac机器安装 IntelliJ IDEA，运行激活工具后，输入key后，提示 key is invalid',
+  description:
+    'Mac, IntelliJ IDEA，破解，提示 key is invalid',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+
+最近公司让我学习Java项目，我对Java了解比较少，需要用到IntelliJ IDEA，去网上找个一个 [破解的工具](https://blog.idejihuo.com/jetbrains/intellij-idea2022-2-2-crack-tutorial-permanent-activation-code-mac.html)，但是输入激活码后，提示 key is invalid，
+
+在评论里面找了很多办法都不行，问了ChatGPT，才知道原因是
+
+直接点 Dock 图标启动 IDEA，❌ 不一定生效（除非你用的 JetBrains Toolbox 且正确链接）
+
+如果你希望这些设置在 图形界面启动时也生效，需要将 VM options 配置复制到对应 IDE 的 config 路径下，例如：
+
+```
+~/Library/Application Support/JetBrains/IntelliJIdea2022.2/idea.vmoptions
+
+
+# 需要把option 复制到 IDEA 的安装目录 才可以
+cp /Users/yonghaiyang/Desktop/idea/22/jihuo-tool/vmoptions/idea.vmoptions \
+~/Library/Application\ Support/JetBrains/IntelliJIdea2023.2/idea.vmoptions
+
+```
