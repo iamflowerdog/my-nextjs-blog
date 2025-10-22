@@ -1,0 +1,42 @@
+
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Yang',
+  date: '2025-10-22',
+  title: 'Gitlab 创建空仓库，本地code push到远端失败，提示： A default branch (e.g. main) does not yet exist for pvc/synesis_manual',
+  description:
+    'Mac, IntelliJ IDEA，破解，提示 key is invalid',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+
+
+三个月没有写技术博客，但是这个问题真的困扰了很多次，我必须要记录在博客中，以防我下次又忘记了
+
+
+### 问题表现：
+
+Gitlab 创建空仓库后，执行命令 `git push pvc main` ,把本地已有的代码push到远端失败 ，提示：
+
+```
+ A default branch (e.g. main) does not yet exist for pvc/synesis_manual， 
+ ![remote rejected]   main -> main (pre-receive hook declined)
+```
+
+
+### 问题原因：
+
+> 👉 你的 GitLab 仓库是空的，还没有默认分支（default branch）。
+而你 git push 时虽然推送了 main 分支，但 GitLab 不允许非默认分支作为首次 push 创建默认分支，除非明确指定。
+
+### 解决办法：
+
+1. 登录 GitLab 项目页面，在 Settings → Repository → Protected branches 
+2. 新建一个 保护分支，这里我们新建 `main` 分支
+
+![procted_branch](/images/tech/procted_branch.png)
+
+
+Perfect ✅
