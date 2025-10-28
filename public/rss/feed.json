@@ -9,8 +9,151 @@
     },
     "items": [
         {
+            "id": "undefined/articles/gitlab",
+            "content_html": "<p>三个月没有写技术博客，但是这个问题真的困扰了很多次，我必须要记录在博客中，以防我下次又忘记了</p>\n<h3>问题表现：</h3>\n<p>Gitlab 创建空仓库后，执行命令 <code>git push pvc main</code> ,把本地已有的代码push到远端失败 ，提示：</p>\n<pre><code> A default branch (e.g. main) does not yet exist for pvc/synesis_manual， \n ![remote rejected]   main -&gt; main (pre-receive hook declined)\n</code></pre>\n<h3>问题原因：</h3>\n<blockquote>\n<p>👉 你的 GitLab 仓库是空的，还没有默认分支（default branch）。\n而你 git push 时虽然推送了 main 分支，但 GitLab 不允许非默认分支作为首次 push 创建默认分支，除非明确指定。</p>\n</blockquote>\n<h3>解决办法：</h3>\n<ol>\n<li>登录 GitLab 项目页面，在 Settings → Repository → Protected branches</li>\n<li>新建一个 保护分支，这里我们新建 <code>main</code> 分支</li>\n</ol>\n<p><img src=\"/images/tech/procted_branch.png\" alt=\"procted_branch\"/></p>\n<p>Perfect ✅</p>",
+            "url": "undefined/articles/gitlab",
+            "title": "Gitlab 创建空仓库，本地code push到远端失败，提示： A default branch (e.g. main) does not yet exist for pvc/synesis_manual",
+            "summary": "Mac, IntelliJ IDEA，破解，提示 key is invalid",
+            "date_modified": "2025-10-22T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
+            "id": "undefined/articles/idea",
+            "content_html": "<p>最近公司让我学习Java项目，我对Java了解比较少，需要用到IntelliJ IDEA，去网上找个一个 <a href=\"https://blog.idejihuo.com/jetbrains/intellij-idea2022-2-2-crack-tutorial-permanent-activation-code-mac.html\">破解的工具</a>，但是输入激活码后，提示 key is invalid，</p>\n<p>在评论里面找了很多办法都不行，问了ChatGPT，才知道原因是</p>\n<p>直接点 Dock 图标启动 IDEA，❌ 不一定生效（除非你用的 JetBrains Toolbox 且正确链接）</p>\n<p>如果你希望这些设置在 图形界面启动时也生效，需要将 VM options 配置复制到对应 IDE 的 config 路径下，例如：</p>\n<pre><code>~/Library/Application Support/JetBrains/IntelliJIdea2022.2/idea.vmoptions\n\n\n# 需要把option 复制到 IDEA 的安装目录 才可以\ncp /Users/yonghaiyang/Desktop/idea/22/jihuo-tool/vmoptions/idea.vmoptions \\\n~/Library/Application\\ Support/JetBrains/IntelliJIdea2023.2/idea.vmoptions\n\n</code></pre>",
+            "url": "undefined/articles/idea",
+            "title": "Mac机器安装 IntelliJ IDEA，运行激活工具后，输入key后，提示 key is invalid",
+            "summary": "Mac, IntelliJ IDEA，破解，提示 key is invalid",
+            "date_modified": "2025-06-16T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
+            "id": "undefined/articles/learning_kana",
+            "content_html": "<p>今天刚好是在这家日企工作5年整，可是和日本同事沟通，还是用英文，我不会一句日文，好几次都想着要学几句日文，为以后工作方便，最后都没坚持下来。</p>\n<p>去年下载了多邻国这个App，学了几个数字，没坚持下来，大学里也选修过日语课程，只简单的学习了五十音，记住了 原来日语的五个元音，再加上 声母拼在一起就是五十音了。</p>\n<p><img src=\"/images/life/kana.png\" alt=\"kana\"/></p>\n<p>从上面这张图，可以看出来，日语的假名，完全是从中汉字里面解构出来的，之所以叫做 假名 ，是 “君子善假于物”  借的意思。</p>\n<p>日本、韩国、越南等国，虽有自身的语言，却苦于没有纪录的方法，仅能利用口耳相传来传述古事。</p>\n<p>汉字传入日本后，日本人解构了汉字，用里面的偏旁部首，来组成自己的文字系统，看起来完全是搬过来了。</p>\n<p><img src=\"/images/life/hanz.jpeg\" alt=\"hanzi\"/></p>\n<p>这是我自己学习日语的草稿，以前高中经常模仿老师黑板上写字，自己写的字也有草书那味儿，比如 安 女 以 这些草书，假名看起来很像草书。</p>\n<p>以日语罗马音为例，sushi to mizu o kudasai</p>\n<p>sushi to mizu ： 寿司和水</p>\n<p>o kudasai: 请</p>\n<p>ocha to gohan o kudasai\n请给我茶和饭</p>\n<p>Yoshiyuki Saito\n斉藤義幸</p>\n<p>shiro （CSGO和Dota2电竞选手名字）\n白色</p>\n<p>下个月，日本总公司的一个领导，准备来北京，到时候他会和我们一对一聊天，希望到时候我能说上一点日语</p>\n<p>Watashi no namae wa Yō desu.\n我的名字是杨</p>\n<p>Watashi no sei wa Yō de, namae wa Yūkai desu.\n我的姓是杨，名字是勇海。</p>\n<p>馬鹿（ばか，baka）\n愚蠢（指鹿为马，意思就是「分不清是非，很蠢」的人。）</p>",
+            "url": "undefined/articles/learning_kana",
+            "title": "日语学习记录",
+            "summary": "多邻国，片假名",
+            "date_modified": "2025-04-25T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
+            "id": "undefined/articles/code_review",
+            "content_html": "<p>首先感谢开源社区的项目 <a href=\"https://github.com/mimo-x/Code-Review-GPT-Gitlab\">CodeReview</a></p>\n<p>实现结果:</p>\n<ol>\n<li>项目有人提交merge代码，触发 Gitlab hook，</li>\n<li>Gitlab 把 git diff code 给 CodeReview service，CodeReview service 把git diff 交给Ollama 部署的DeepSeek处理，DeepSeek把AI review code 返回给 CodeReview service</li>\n<li>Python收到AI review，调用企业微信Robot，企业微信Robot把AI Review结果，发送到聊天群</li>\n</ol>\n<p><img src=\"/images/tech/code_robot.png\" alt=\"code_robot\"/></p>\n<h3>一、用Root账号，创建项目的webhook</h3>\n<p><img src=\"/images/tech/webhook.png\" alt=\"webhook\"/></p>\n<h3>二、Clone <code>https://github.com/mimo-x/Code-Review-GPT-Gitlab</code> 代码，并运行起来</h3>\n<ul>\n<li>我在Ubuntu 24机器上运行的 python3</li>\n</ul>\n<pre><code>  在项目目录中运行以下命令创建一个虚拟环境：\n\n  python -m venv venv\n\n  根据你的操作系统，激活虚拟环境：\n\n  source venv/bin/activate\n\n  在虚拟环境中运行：\n\n  pip install -r requirements.txt\n\n  退出虚拟环境\n\n  deactivate\n\n</code></pre>\n<ul>\n<li>后台运行 app.py</li>\n</ul>\n<pre><code>  你可以使用以下几种方式让 python3 ./app.py 在后台运行：\n\n  ⸻\n\n  1. 使用 nohup（推荐）\n\n  nohup python3 ./app.py &gt; output.log 2&gt;&amp;1 &amp;\n\n    •\tnohup：忽略挂起信号，即使你关闭终端，进程也不会退出。\n    •\t&gt; output.log 2&gt;&amp;1：将标准输出和错误输出重定向到 output.log，防止进程因 I/O 问题被终止。\n    •\t&amp;：让进程在后台运行。\n\n  查看运行中的进程：\n\n  ps aux | grep app.py\n\n  停止进程：\n\n  kill &lt;进程ID&gt;\n\n</code></pre>\n<h3>添加企业微信robot发送信息</h3>\n<p>由于这个开源项目 只有钉钉的robot消息，但是我们公司用企业微信，需要自己魔改，把企业微信的robot填进去，正好之前自己做了一个 Jenkins打包通知 企业微信robot，这次可以直接拿来用</p>\n<ul>\n<li>创建企业微信robot\n<img src=\"/images/tech/create_wechat_robot.png\" alt=\"create_wechat_rebot\"/></li>\n</ul>\n<p>创建成功后，企业微信会给你一个 WECHAT_URL</p>\n<ul>\n<li>发送消息给 Robot</li>\n</ul>\n<pre><code>import requests\nfrom config.config import *\n\nfrom response_module.abstract_response import AbstractResponseMessage\n\nclass WechatResponse(AbstractResponseMessage):\n    def __init__(self, config):\n        super().__init__(config)\n\n    def send(self, message):\n        # 这里实现发送消息到 Slack 的逻辑\n        \n        WEBHOOK_URL = WECHAT_URL\n\n        message = {\n        &quot;msgtype&quot;: &quot;text&quot;,\n        &quot;text&quot;: {\n            # &quot;mentioned_list&quot;: [&quot;@all&quot;],\n            &quot;content&quot;: message\n        }\n        }\n\n        response = requests.post(WEBHOOK_URL, json=message)\n        if response.status_code == 200:\n            print(&quot;WeChat 消息发送成功&quot;)\n        else:\n            print(f&quot;WeChat 消息发送失败: {response.status_code} - {response.text}&quot;)\n        return True\n</code></pre>\n<h3>运行成功</h3>\n<p>完美😍</p>",
+            "url": "undefined/articles/code_review",
+            "title": "让DeepSeek来帮你Review代码",
+            "summary": "GitLab, Code Review, DeepSeek, 企业微信，Robot",
+            "date_modified": "2025-03-25T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
+            "id": "undefined/articles/deepseek",
+            "content_html": "<p>春节前，中国的DeepSeek大火，它的训练成本比OpenAI小了接近100倍，让美股大跌，我在支付宝买的美股纳斯达克综合指数基金也跌了3个点，英伟达的股票直接跌了18个点，这个大模型\n真是太厉害，如此厉害，我一定要尝试一下，春节前就使用上了，体验了一下，效果的确很不错，和ChatGPT很接近，并且它还是免费的。</p>\n<p>正式上班后，再去使用，发现DeepSeek官网总是崩溃，于是着手用公司的机器自己部署，下面是我的部署步骤，尽量选择科学上哇那个。</p>\n<h3>安装Ollama</h3>\n<ol>\n<li>先介绍一下我的安装环境</li>\n</ol>\n<pre><code>systemOS       Ubuntu 24.04.1 LTS\nsystem         Precision 3660 (0A9F)\nprocessor      12th Gen Intel(R) Core(TM) i9-12900K\nmemory         32GiB System Memory\nstorage        Samsung SSD 980 PRO 1TB\nGPU            NVIDIA GeForce RTX 3060 Ti 8192MiB\n\nollama 可能需要自备🪜\n</code></pre>\n<ol start=\"2\">\n<li>在Ubuntu下载Ollama</li>\n</ol>\n<p><code>curl -fsSL https://ollama.com/install.sh | sh</code></p>\n<p>运行 ollama <code>ollama serve</code>, 一路输入yes</p>\n<ol start=\"3\">\n<li>通过ollama下载DeepSeek模型</li>\n</ol>\n<p><code>ollama run deepseek-r1:7b</code></p>\n<p>这一步安装成功后，就可以在terminal对话了</p>\n<ol start=\"4\">\n<li>ollama API 端口暴露出来（💡 Ollama 的 API 接口默认只监听 localhost（127.0.0.1）接口，而不是所有外部网络地址。）</li>\n</ol>\n<pre><code>   # 在本机测试可以：\n\n   curl http://localhost:11434/api/generate \\\n    -d &#x27;{\n      &quot;model&quot;: &quot;deepseek-r1:14b&quot;,\n      &quot;prompt&quot;: &quot;用一句话介绍中国的万里长城。&quot;,\n      &quot;stream&quot;: false\n    }&#x27;\n\n  # 但是另外一台机器，不能用，可以ping通\n    curl http://192.168.0.107:11434/api/generate \\\n    -d &#x27;{\n      &quot;model&quot;: &quot;deepseek-r1:14b&quot;,\n      &quot;prompt&quot;: &quot;用一句话介绍中国的万里长城。&quot;,\n      &quot;stream&quot;: false\n    }&#x27;\n\n  # 解决办法\n\n  在 ~/.bashrc 文件后面 加上\n  export OLLAMA_HOST=0.0.0.0\n\n  保存后 \n  source ~/.bashrc \n\n  然后重新运行\n  ollama serve\n</code></pre>\n<ol start=\"5\">\n<li>创建 systemd 服务：让 Ollama 开机自启</li>\n</ol>\n<p>vim /etc/systemd/system/ollama.service</p>\n<pre><code>[Unit]\nDescription=Ollama Service\nAfter=network-online.target\n\n[Service]\nExecStart=/usr/local/bin/ollama serve\nUser=ollama\nGroup=ollama\nRestart=always\nRestartSec=3\nEnvironment=OLLAMA_HOST=0.0.0.0\nEnvironment=&quot;PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin&quot;\n\n[Install]\nWantedBy=default.target\n</code></pre>\n<p>重启和验证</p>\n<pre><code>sudo systemctl daemon-reload\nsudo systemctl restart ollama\n\nsystemctl status ollama\n\n</code></pre>\n<h3>安装 Open WebUI</h3>\n<ol>\n<li>安装 Open WebUI</li>\n</ol>\n<p>这里官网提供用Python和Docker两种安装方法，用Python方法我尝试了两次没有成功，比较麻烦，于是我选择使用docker安装</p>\n<pre><code>docker run -d -p 3000:8080 --gpus all --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:cuda\n</code></pre>\n<p>这里我的显卡是NVD的，如果不是可以去掉 <code>--gpus all</code> 参数,</p>\n<p><code>-e OLLAMA_BASE_URL=https://example.com</code>  参数可以修改ollama的地址</p>\n<p>这里我遇到一个问题，Open WebUI已经启动了，通过 <code>localhost:3000</code> 也能访问到GUI，但是没有获取docker容器外，Ubuntu宿主机安装的Deepseek模型，这里官方提供了一种方法，可以试试</p>\n<pre><code>Open WebUI: Server Connection Error\n\nIf you&#x27;re experiencing connection issues, it’s often due to the WebUI docker container not being able to reach the Ollama server at 127.0.0.1:11434 (host.docker.internal:11434) inside the container . \nUse the --network=host flag in your docker command to resolve this. Note that the port changes from 3000 to 8080, resulting in the link: http://localhost:8080.\n</code></pre>\n<p>但是这样记得GUI端口就改成 <code>8080</code>了</p>\n<p>另外我自己的解决docker不能访问11434端口的解决办法</p>\n<pre><code>  sudo vim /etc/systemd/system/ollama.service\n  查看环境变量位置\n  EnvironmentFile=/etc/environment\n\n  查看 ollama serve -h\n\n  OLLAMA_HOST                IP Address for the ollama server (default 127.0.0.1:11434)\n\n  这里可以确认 ollama 只监听本地的11434，docker内的环境是隔离的，不能访问11434\n\n  sudo nano /etc/environment\n\n  把 OLLAMA_HOST=0.0.0.0:11434 加到环境变量最后\n\n  重启 ollama\n  \n</code></pre>\n<ol start=\"2\">\n<li>部署结果，成功了，就可以愉快聊天了</li>\n</ol>\n<p><img src=\"/images/tech/openwebui.png\" alt=\"openwebui\"/></p>\n<ol start=\"3\">\n<li>\n<p>喂大模型自己的数据</p>\n<ol>\n<li>添加Knowledge</li>\n</ol>\n<p><img src=\"/images/tech/add_knowledge.png\" alt=\"add_knowledge\"/></p>\n<ol start=\"2\">\n<li>测试Knowledge</li>\n</ol>\n<p>knowledge 添加后，在对话页面，先输入#键，就可以引用到你的知识库，（这个功能在2024年 GPT 4 Plus功能 花费每个月20美元才能使用的）</p>\n<p><img src=\"/images/tech/test_knowledge.png\" alt=\"test_knowledge\"/></p>\n<ol start=\"3\">\n<li>添加Model</li>\n</ol>\n<p><img src=\"/images/tech/add_model.png\" alt=\"add_model\"/></p>\n<ol start=\"4\">\n<li>测试Model</li>\n</ol>\n<p><img src=\"/images/tech/test_model.png\" alt=\"test_model\"/></p>\n</li>\n</ol>",
+            "url": "undefined/articles/deepseek",
+            "title": "手把手教你部署DeepSeek，并添加自己的知识库和自定义模型",
+            "summary": "Ubuntu，NVD, DeepSeek, 知识库，自定义模型",
+            "date_modified": "2025-02-14T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
+            "id": "undefined/articles/endof2024",
+            "content_html": "<p>不知不觉，已经2024年底，和往年一样继续做年终总结。</p>\n<p>整整一年，没有写过一篇博客，这一年懒散了，颓废了，没有往年分享的欲望，借着今天的博客，简单的分享一下我的2024年。</p>\n<p>生活上，两个孩子开始启蒙英文，并且效果还不错，多亏了媳妇找到了自然拼读这种学习英文的方法。</p>\n<p>今年开始尝试用我的手艺，解决实际生活问题，比如我媳妇在给暖暖下载的英文mp3文件，100个mp3文件，想要放在10个文件夹里面，\n这些mp3文件还是乱序的，她都是一个一个文件的找到，然后再拖动到文件夹里面，这样很费劲，我就主动大显身手，想写一个脚本，\n帮她完成这个重复的工作，这期间学习了winodws的批处理文件格式.bat，但是大部分工作还是ChatGPT帮我完成的，输出的脚本，在给小猪佩奇文件分类的时候的时候，\n还算成功，谁知道后面给RAZ文件分类的时候，就不起作用了，最终我的脚本没有得到媳妇认可，她也懒得用了，看来我做的第一款产品失败了。</p>\n<p>工作上，我的技术并没有显著提升，现在自从有了AI的辅助编程，我自己的技术甚至说在倒退。\n今年公司团建本来选择去长春的长白山，出行计划书已经准备好了，但是由于当地天气不太好，可能看不到天池，于是改道西安。\n<img src=\"/images/life/changbaishan.png\" alt=\"长白山\"/>\n今年是我已经在这家日企工作5年了，但是今年公司的业绩不如从前，裁员了一个销售，这位销售已经在公司干了十多年了，当下经济下行，什么行业都不好干，期待明年会好一些。</p>\n<p>在软件工具上，今年已经完全放弃了网易云，开始转向Notion；学会了使用Screen Studio，一个很好用的Mac录屏软件；今年在抖音上分享暖暖启蒙英文的视频，\n收获了不少粉丝，我和媳妇商量着，等明年暖暖英文好起来，让我们学习英文的方法分享出去，让更多的人受益，这期间我们也可以提供一些增值服务，让我媳妇还可以挣钱，\n真是一举两得。\n今年开通了Tiktok，Tiktok用大陆手机使用，没有以前的限制了，体验了字节跳动的剪映和Capcut，智能剪辑和字幕识别真是不错，可惜会员要一个月79人民币，还没舍得开通。</p>\n<p>今年2024年的最后一年，我还得到一个好消息，就是我的前同事，在一起玩的比较好的，他们全家去了美国，真是为他开心，他去美国的路途真是不容易，打心眼儿里为他们全家开心。\n<img src=\"/images/life/aww.jpeg\" alt=\"同事\"/></p>\n<p>2024年体重下降到80kg左右，但是腿脚的确不如以前灵活了，以前扛35斤的纯净水，爬5层楼梯不费大劲儿，现在抗15斤左右的，爬楼梯都气喘吁吁。</p>\n<p>展望2025，希望能出境一次，看看外面的世界。</p>",
+            "url": "undefined/articles/endof2024",
+            "title": "2024年终",
+            "summary": "用文字记录生活",
+            "date_modified": "2024-12-31T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
+            "id": "undefined/articles/endof2023",
+            "content_html": "<hr/>\n<p>不知不觉，已经2023年底，和往年一样继续做年终总结。</p>\n<p><img src=\"/images/life/2023.png\" alt=\"2023\"/></p>\n<p>今年是疫情放开的第一年，人们似乎完全忘记疫情的一切，我清楚的记得2022年底，表妹问我：“咱们以后要像外国一样，完全放开，不用每天做核酸了吗？”</p>\n<p>2023自己的体重增长到86kg，真是胖了不少。家里的大宝上了大班，开始学习拼音和算术，二宝2岁多点了，能整晚睡觉了，媳妇再也不用像以前那么辛苦了，结婚5年，我们终于迎来自己的春天。</p>\n<p>工作上，今年和同事去<a href=\"/life/beihai\">北海旅游</a>一圈，终于可以去看一下祖国的大海。这一年，和日本同事用英文沟通，英语口语长进了不少，至少现在敢说了。这一年，AI的使用，给工作的效率提升了很多，\n以前遇到不会的问题，去Google，要查询很久，现在直接问ChatGPT，很快就给出了答案，科技进步真是太快了，对ChatGPT我还专门写了一篇文章 <a href=\"/articles/chatgpt\">躲在屏幕背后的人</a>。</p>\n<p>这一年，我使用了14年的 <a href=\"https://weibo.com/1864478017/NDZFgbwF6\" target=\"_blank\">微博账号</a>\n，被封禁三年后，终于迎来了解封，不过时过境迁，已经没有在微博上更新状态的心情了，最近都是在<a href=\"https://www.douyin.com/user/MS4wLjABAAAAP0M2fRx0RlGQMJHqa5eV-e2s5dNxMXbyCULkCNbl4PI\">抖音</a>记录生活。</p>",
+            "url": "undefined/articles/endof2023",
+            "title": "2023年终",
+            "summary": "用文字记录生活",
+            "date_modified": "2024-02-06T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
+            "id": "undefined/articles/chatgpt",
+            "content_html": "<p>曾经一段时间，去ATM取款，我在思考，这里面是不是真有一个人，在机器里面工作，帮我数钱，然后再把钱准备好。</p>\n<p>最近有那么一瞬间，在使用ChatGPT4的时候，感觉是在和真人对话，感觉屏幕后面真有一个人在给我传道授业，特别是最近和GPT<a href=\"https://weibo.com/6222955609/NqKGtwZ6U\">对话</a>，\n让我感觉那么的不真实。</p>\n<p>ChatGPT是2022年11月份发布的，到大陆火起来还是今年的2月份，国内的大模型也相继推出。我从去年注册账号，到现在使用了快一年，分享一下我自己的感受。</p>\n<p>我最开始使用它，令我最兴奋的一个点是它竟然能记住我问的上一个问题，这点和之前体验过的AI完全不一样，比如小爱同学，Siri，Cortana, 最开始使用AI是\n在微软的Cortana，因为这个应用内置在Windows phone手机里面，我和宿舍的舍友又都是在使用这款手机，当时这款手机还是叫Lumia。</p>\n<p><img src=\"/images/tech/windowsphone.jpg\" alt=\"windowsphone\"/></p>\n<p>2014年4月2日，当时微软推出了Cortana这款虚拟助手，我用自己的Lumia 925，注册了开发者账号，第一时间申请了内侧体验Cortana，当时给我带来最大的震撼是\n这款助手的英文回答非常流畅，比之前的机器人语音更清晰，但这个时候的Cortana声音还没有有情感</p>\n<p><img src=\"/images/tech/cortana.jpg\" alt=\"cortana\"/></p>\n<p>时隔多年，当我使用使用手机和ChatGPT4对话交流的时候，人工智能已经发生了翻天覆地的变化，说话思维清晰，回答问题准确，声音通过训练变得更自然。这是我和GPT对话的视频</p>\n<p>ChatGPT 的语音还有一点比其他AI更厉害，大部分模型在训练出来的声音在说第二种语言的时候，会切换的很不自然，而GPT不一样，中英文切换，流畅自如，真是匪夷所思。</p>\n<p>我也尝试让GPT分析我的血液化验结果，但是由于一些限制，GPT的开发人员不允许给用户医疗建议，因为还是需要谨慎回答，可能真的有用户按照建议去治疗。</p>\n<p>我身边也有一些朋友找我使用GPT，他们有金融从业者，医生，IT技术人员，每个人在使用一段时间，都对它赞赏有加。</p>\n<p>我现在日常工作已经离不开GPT了，它帮我解决了80%的难题，有一些bug，可能需要去google搜索很久，然后再去Stackoverflow 过滤自己想要的结果，但是自从有了GPT，他能轻松\n应对。</p>\n<p>GPT现在还能帮我画画，我之前经常做一些梦，但是这些梦很快就忘记了，有了GPT，它能很快帮我记录梦境。\n<img src=\"/images/tech/dream.jpg\" alt=\"dream\"/>\n<img src=\"/images/tech/dream2.jpg\" alt=\"dream2\"/></p>\n<p>但是GPT图像识别还有很大进步空间，图中的8号，是什么东西，水果还是蔬菜，GPT回答的不正确</p>\n<p><img src=\"/images/tech/shanzu.jpg\" alt=\"cortana\"/></p>\n<p>未来AI会发展成什么样，我现在不敢想象，不过我能推测出，它的发展速度会很快，7年前，我还在惊讶Cortana的发布，现在那个时代的产品已经远远落后了，期待下一个AI发展高峰期</p>",
+            "url": "undefined/articles/chatgpt",
+            "title": "躲在屏幕背后的人",
+            "summary": "使用ChatGPT有感而发",
+            "date_modified": "2023-11-03T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
+            "id": "undefined/articles/effective",
+            "content_html": "<p>从事编程快6年了，老板经常说国内开发者和国外差别很大，我一直想不明白差别在哪儿？</p>\n<p>他说：国外的程序员很重注代码交付的质量，开发后不仅写文档，还自己测试。而我们的程序员，代码写完，提交到主分支，就完事儿了，也没有在测试环境部署一下跑一遍。</p>\n<p>这的确是差别，可能是我们的国家人口多，软件开发的人也多，所以分工比较明细。</p>\n<p>但是这带来一个问题，全才开发者比较少，独立开发者更少，能养活自己的程序员更少，这是值得我们思考的问题。</p>\n<p>最近体验了一下老外开发的<a href=\"https://37signals.com\">团队协作工具Basecamp</a>，软件中的Hill Chart功能令我印象深刻，他和传统的任务progress bar不一样，\n普通的任务progress bar是直线的，比如任务完成50%需要一天工作量，剩下50%我们自然也认为需要一天工作量，但是现实中每个任务难度不一样的，所以作者以Hill Chart为切入点，\n做出了这一款产品，这个功能能帮助我们清晰的看到任务流中的难点在哪里。</p>\n<p><img src=\"/images/tech/hillchart.jpg\" alt=\"basecamp\"/></p>\n<p>软件的作者是Jason，他不但开发软件，还喜欢写作，阮一峰老师推荐了他的一本书，这本书的中文书名叫作《重来3：跳出疯狂的忙碌》（电子工业出版社，2020），英文书名为<a href=\"https://basecamp.com/books/calm\">&quot;It Doesn&#x27;t Have to Be Crazy at Work&quot;</a>（直译就是《何必工作狂》）\n其中有一个观点说：不要用&quot;生产力&quot;这个词评价程序员，因为它是评价机器的。</p>\n<p>当你强调生产力时，实际上是在强调，人必须始终忙碌。每一刻都有事情要做，而且总是有更多事情要做！ 因此，你会有做不完的工作，闲暇时间越来越少，工作压力越来越大。</p>\n<p>程序员的真正目标，应该是&quot;有效性&quot;（effective）。你的劳动是有效的，切实完成了项目。</p>\n<p>当你把&quot;有效性&quot;当作目标时，只要有效完成了项目，你就可以停下来了。因此，你可以追求做更少的事情、用更少的时间达到目标，这样你会得到更多的闲暇和休息，这才是可持久的。</p>\n<p>———-</p>\n<p>以下是这篇文章的中文翻译，By ChatGPT</p>\n<p>如今关于提升生产力的讨论越来越多。各种方法和工具层出不穷，承诺能让你变得更加高效。但更高效地做什么呢？</p>\n<p>生产力适用于机器，而不适用于人类。在把某个时间段内完成某数量的工作单位或在较短时间内完成更多工作方面，这种做法并没有什么意义。</p>\n<p>机器可以全天候工作；人类无法做到这一点。</p>\n<p>当人们专注于提高生产力时，他们最终会变得忙碌起来。把每个瞬间都安排上些事情。而事情永远做不完！</p>\n<p>在Basecamp，我们不相信忙碌。我们相信高效。我们能做多少？我们能削减掉多少？我们不是在增加待办事项，而是在增加不需要做的事项。</p>\n<p>有生产力是占据你的时间——把你的日程安排到极限，并尽可能多地完成。有效率是找到更多未被占据的时间，去做除了工作之外的其他事情。用于休闲、家人和朋友的时间，或者什么都不做的纯粹的闲暇</p>\n<p>是的，完全没有事情可做是完全可以的。或者，更好的做法是，没有什么值得做的事情。如果在某一天只有三个小时的工作要做，那就停下来吧。不要为了保持忙碌或感觉有生产力，而在一天中再加上五个小时的工作。不做那些不值得做的事情是度过时间的一种很好方式。</p>\n<p>——摘自《工作没必要那么疯狂》</p>\n<p><a href=\"https://basecamp.com/books/calm\">https://basecamp.com/books/calm</a></p>\n<p>-杰森</p>\n<p>下面我把文章原文贴出来。</p>\n<p>So much talk about hacking productivity these days. There’s an endless stream of methodologies and tools promising to make you more productive. But more productive at what?</p>\n<p>Productivity is for machines, not for people. There’s nothing meaningful about packing some number of work units into some amount of time or squeezing more into less.</p>\n<p>Machines can work 24/7; humans can’t.</p>\n<p>When people focus on productivity, they end up focusing on being busy. Filling every moment with something to do. And there’s always more to do!</p>\n<p>We don’t believe in busyness at Basecamp. We believe in effectiveness. How little can we do? How much can we cut out? Instead of adding to-dos, we add to-don’ts.</p>\n<p>Being productive is about occupying your time—filling your schedule to the brim and getting as much as you can. Being effective is about finding more of your time unoccupied and open for other things besides work. Time for leisure, time for family and friends. Or time for doing absolutely nothing.</p>\n<p>Yes, it’s perfectly okay to have nothing to do. Or, better yet, nothing worth doing. If you’ve only got three hours of work to do on a given day, then stop. Don’t fill your day with five more just to stay busy or feel productive. Not doing something that isn’t worth doing is a wonderful way to spend your time.</p>\n<p>——\nvia It Doesn&#x27;t Have to Be Crazy at Work</p>\n<p><a href=\"https://basecamp.com/books/calm\">https://basecamp.com/books/calm</a></p>\n<p>-Jason</p>\n<p>老外做的软件的确在生产价值，而我们的软件，大部分都是一些内卷产品，产品本身附带一堆毫无价值的功能。</p>\n<p>其他的行业我不知道怎样，但是软件这个行业，我们还有很长的路要走，希望有一天我能做出一款有价值的产品，成为一个独立开发者，不为节假日买不到回家的票而发愁，不为租房烦恼，不为找不到工作而抑郁，\n真正的做到为自己工作。</p>",
+            "url": "undefined/articles/effective",
+            "title": "Effective > Productive",
+            "summary": "不要用\"生产力\"这个词评价程序员，因为它是评价机器的。",
+            "date_modified": "2023-08-25T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
+            "id": "undefined/articles/beihai",
+            "content_html": "<p>从北海回来已经过去一个月了，一直想记录这次旅行，但是最近忙于工作，没有时间写，如果再不写，恐怕都记不住了。</p>\n<p>这次北海之行，是公司组织的，有北京9个同事，3个日本同事，再加上远在美国的CEO，总共13人。日本同事提前从东京飞到北京，CEO从美国飞到北京，然后我们一起从北京出发，飞北海。</p>\n<p>到达北海已经下午了，蒙蒙细雨，在一个叫老街的风情街打卡，吃了虾饼，晚上入住银滩假日酒店，在同事房间开party，大家聊的比较嗨。</p>\n<p>第二天上午去了红树林，下午去玩密室逃脱，印象比较深刻。我们玩的剧本是恐怖主题，名字是安娜贝儿，，团队里需要有一个人负责和场控沟通，由他来指导我们下一步的动作。</p>\n<p><img src=\"/images/life/escape_compressed.jpeg\" alt=\"net163\"/></p>\n<p>由于有外宾，还还需要翻译，大家推荐我做主持人，由我来和场控沟通，我欣然接受。</p>\n<p>剧情开始，我们被蒙着眼睛进去一个密闭的小房间，没有灯光，只有一个在反复播放的DVD，桌子上还有一些道具，我们需要根据房间里的信息，找到线索，最后逃出密室。</p>\n<p>第一个任务需要Ruby去执行，他去安娜的卧室床底下找一个东西，回来被吓得不得了，然后她提议终止游戏，因为她觉得太恐怖了。</p>\n<p>第二个任务是去厨房找到五盘菜，大家都不敢去了，我就自告奋勇，我觉得这个任务应该不会太恐怖，我走进厨房，我的心里很恐慌，虽然我知道这只是一个游戏，但是我还是很害怕，我走到厨房，</p>\n<p>蹲下来，从橱柜里面去盘子，刚拿出来第二盘菜的时候，NPC(Non-Player Character，中文叫非玩家角色，也就是场控，他们会扮演游戏中的角色) 突然从我的身后出来，</p>\n<p>他大声呼喊，声音像是经过扩音器了，很尖锐，很恐怖，我也开始大声呼喊，因为太过于紧张，我的声音比他的还恐怖。</p>\n<p><img src=\"/images/life/kitchen.jpg\" alt=\"net163\"/></p>\n<p>在经历这一次任务后，我我发出的声音越大，自己胆子也越来越大，我开始主动去执行任务，我觉得这个游戏还是很有意思的，我想要尽可能多的体验这个游戏。</p>\n<p>做完任务回到客厅，大家把所有的门都关上，因为NPC会从任何一个门出来。</p>\n<p>接下来的任务是去另外一间屋子，给亡灵祷告，北京的同事们都不敢去，最后指派一名日本的同事去，但是他不会中文，需要我和他一起去执行任务，并且我需要翻译。</p>\n<p>日本同事去执行任务的时候，看起来比较直，他们也会害怕，但是他们不会推脱交给自己的任务，反而北京的同事，给他们指派任务的时候，大家都扭扭捏捏的，不愿意去执行。</p>\n<p>最后游戏结束，我问kogura san：I founded when I assign task to Beijing team, they are not willing to do it, but when I assign task to Tokyo team, they are willing to do it, why?</p>\n<p>他说：Japanese people don&#x27;t want stop the game, they want to finish it.</p>\n<p>这次游戏，让我感受到了两个国家的文化不同。</p>\n<p>中间我们还讨论了其他问题：</p>\n<p>我问 hasimoto san：日本人称呼同事，喜欢用姓加上san，那么一个公司的相同的姓很多，该如何称呼？\n他回答我一大串，我也没听明白，最后聊到日本文化，他告诉我，以前日本的姓不多，但是后来户籍登记制度改革，每个人都可以自己取姓，所以姓越来越多，最后又暂停了。\n我还问了他一些关于日本歌舞伎（kabuki）的问题，他告诉我现在歌舞伎在东京不多了</p>\n<p><img src=\"/images/life/hasimoto.jpeg\" alt=\"net163\"/></p>\n<p>我和Miura san 聊的最开心，他是一个很健谈的人，和我一样，也有两个女儿，他告诉我们，他的女儿在知道他要来中国出差的时候，哭的很伤心。\n他还会用中文数数，从1到10，数的很开心，他告诉我，是他奶奶教他的，他的奶奶和中国有过交集，具体我也忘记了。</p>\n<p><img src=\"/images/life/miura.jpg\" alt=\"miura\"/></p>\n<p>kougura san 是一个很绅士的日本人，甚至看起来很无趣，但是在KTV唱的歌曲，很阳光，年轻，活泼，反差很大。</p>\n<blockquote>\n<p>注：这篇文章，部分文字是由Github Copliot自动生成</p>\n</blockquote>",
+            "url": "undefined/articles/beihai",
+            "title": "北海之旅",
+            "summary": "Team Building, ",
+            "date_modified": "2023-06-26T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
+            "id": "undefined/articles/brief/tech",
+            "content_html": "<ol>\n<li>\n<p>如果你觉得自己写的代码是屎，那么至少把这坨屎装进盒子里，总比放在大锅里好。</p>\n<p>-- Yang， 封装自己的代码有感而发，项目里一个js文件，写着写着就上千行了</p>\n</li>\n<li>\n<p>我建议购买一本《成功人士的七个习惯》，但不要阅读，而是烧掉它，从而做出一个象征性姿态，跟这类成功学决绝。</p>\n<p>-- <a href=\"https://news.ycombinator.com/item?id=35847971\">Linus Torvalds</a>，Linux 创始人</p>\n</li>\n<li>\n<p>别人给你的东西不正确，不要接受，如果你接受，你就是第一责任人，就相当于买到假东西，你不应该接受，如果你接受，问题就转到你这儿了</p>\n<p>-- Sam， 联调的时候，C++给错误的api，Java不要接受</p>\n</li>\n<li>\n<p>不要害怕提问笨问题，现在提问笨问题，以后变聪明</p>\n<p>-- Sam，AI分享会上，鼓励大家多问问题，并介绍了 Brown bag 文化。</p>\n</li>\n<li>\n<p>开会的时候，美国喜欢让观众当作笨蛋，什么都不知道，然后讲的很细，中国则相反。</p>\n<p>-- Sam，把文档做细，把演讲做细</p>\n</li>\n<li>\n<p>Kaizen的时候需要对自己层层加码</p>\n<p>-- Sam，2023年年会分享</p>\n</li>\n<li>\n<p>我们的年龄还小，往后时间还很多，使用AI的时间很多，现在学会了，往后跳槽也是优势，双赢</p>\n<p>-- Sam，建议大家从现在开始，多使用AI</p>\n</li>\n<li>\n<p>任何软件工程师的主要工作都是交付价值。软件只是达到目的的手段。</p>\n</li>\n<li>\n<p>You should blog even if you have no readers</p>\n<p>-- <a href=\"http://nathanmarz.com/blog/you-should-blog-even-if-you-have-no-readers.html\">nathanmarz</a></p>\n</li>\n<li>\n<p>如果你没有时间集中精力学习新知识，那么就花时间复习已经学过的内容。</p>\n<p>-- <a href=\"https://news.ycombinator.com/item?id=38676257\">Hacker News 读者</a></p>\n</li>\n<li>\n<p>生活太无趣了</p>\n<p>-- 我的好朋友<a href=\"https://weibo.com/u/1886868100\">黑哥</a>说</p>\n</li>\n</ol>",
+            "url": "undefined/articles/brief/tech",
+            "title": "言论",
+            "summary": "Technology in a nutshell",
+            "date_modified": "2023-06-14T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
+            "id": "undefined/articles/brief",
+            "content_html": "<hr/>\n<ol>\n<li>\n<p>过完整个夏天，忧伤并没有好一些。</p>\n<p>--周传雄</p>\n</li>\n<li>\n<p>燕燕于飞，差池其羽；之子于归，远送于野，瞻望弗及，泣涕如雨。</p>\n<p>-- 诗经</p>\n</li>\n<li>\n<p>学而时习之，不亦悦乎。</p>\n<p>-- 论语</p>\n</li>\n<li>\n<p>高高的雪山祝福我们。</p>\n<p>-- 刀郎。五一劳动节</p>\n</li>\n<li>\n<p>If I should go, hold my hand; If I should leave, time cover me.</p>\n<p>--Rihanna.</p>\n</li>\n<li>\n<p>慢慢吹，轻轻松；人生路，慢慢走。</p>\n<p>-- 晚风 伍佰……今天送爷爷走2017年5月17日</p>\n</li>\n<li>\n<p>Hills have ayes, girls hide your lies.</p>\n<p>-- The Weeknd. Hills</p>\n</li>\n<li>\n<p>君子慎独</p>\n<p>-- 孔子</p>\n</li>\n<li>\n<p>明天准备去保定，带着暖暖看爷爷</p>\n<p>-- 2020年12月11日</p>\n</li>\n<li>\n<p>雪山啊，闪银光，</p>\n<p>雄鹰啊，展翅飞翔。</p>\n<p>草原风光无限好，叫我怎能不歌唱。</p>\n<p>-- 2023年2月7日 刀郎</p>\n</li>\n</ol>",
+            "url": "undefined/articles/brief",
+            "title": "一句话",
+            "summary": "转载记录在备忘录的片段",
+            "date_modified": "2023-06-14T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
+            "id": "undefined/articles/mywife",
+            "content_html": "<p>不知不觉，已经结婚五年，五年前，我在qq空间发表一篇日志 <a href=\"https://user.qzone.qq.com/596622954/blog/1519383063\" target=\"_blank\">《十年》</a>， 在日志的最后，我分享了当时准备结婚的喜悦。\n时过境迁，日志里提到我的新浪微博也被封两年了。</p>\n<p>我和妻子相识于相亲，是姑姑给我介绍的。姑姑一直为我的婚姻大事而发愁，她是除了我爸，最关心我的人了。姑姑家的儿子结婚后没多久，她打听到自己儿媳的表姐还未婚，恰好她的表姐最近在相亲，并且年龄\n与我相仿，于是就赶紧介绍给我，让我加上她的微信。</p>\n<p>当时我正在无讼工作，无讼的同事于永雨也给我介绍一个女孩，这个女孩是永雨的同学，在北京互联网公司做测试，她对我好像对我不感冒，我在微信上几次联系她，并寻求有机会和她线下见面的时候，都被她婉拒了，\n我现在挺为那个女孩惋惜呢，因为她错过了一个这么好择偶对象。</p>\n<p>加上我未来妻子的微信后，我向她简单介绍了我的工作内容，她也介绍了自己的工作，她的工作内容是传道，传基督教的道。我相亲遇到很多工作类型的女孩，大部分是教师，医生，销售，厂妹，做神职工作的还是第一次\n遇到。我和她聊了我对基督教的看法，因为我在大学的图书馆里，看过很多关于欧洲历史的书，整个欧洲历史都在围绕着宗教转。</p>\n<p>聊过一段时间后，双方觉得还不错，临近元旦，我还没有进一步的打算，但是我姑姑的一条微信瞬间给我指明了道路：“元旦你放假回来和她见见面”。于是我买了元旦前一天的高铁票，准备去漯河见面。</p>\n<p>一下高铁，就看到她在车站接我，这令我很感动，当时她的脸还胖乎乎的，后面她接我去饭店吃饭，我们第一次线下见面，双方觉得还不错，后面就结婚了，今天我要分享的是结婚后，我的媳妇给我带来了哪些改变。</p>\n<p>第一，能存住钱了，单身时候，花钱大手大脚，虽然有想存款意识，但是每天在外面吃饭，也是一大笔花费，还有单身就需要去相亲，每次相亲需要吃饭，看电影，买礼物，买衣服，这也花费不少。</p>\n<p>第二，身体变的更加健康了，以前没结婚，自己看手机，玩游戏，没有节制，经常熬夜，吃饭也不规律，这就导致身体不健康，结完婚后，媳妇每天做各种美食，使我的体重直线上升。</p>\n<p>第三，精神上的依靠，以前对很多事情想不明白，现在有了帮你排忧解难的人，有一次因为大宝不听话，我揍了她一顿，晚上我问媳妇：“为什么西方国家的夫妇，很少揍孩子，我们为什么一点就着？”， 媳妇说：“因为我们的\n社会压力比他们大，你每天辛苦工作，但是随时也可能面临被裁员；我们每天还要担心孩子生病，因为一生病，带孩子看病太难了；我们还要担心孩子上学的问题，外地人来北京读书太难了，各种居住证，房屋租赁合同都要准备齐全”。\n媳妇的回答瞬间给我解惑了，生在中国太难了。</p>\n<p>良好的婚姻的确能给男人带来不少进步，这几年我和媳妇经历了两次裁员，每次都是她鼓励我继续前进，不怕困难。感谢妻子，让我从一个大男孩变成一个男人。</p>\n<p><img src=\"/images/life/chenqi.jpg\" alt=\"妻子\"/></p>",
+            "url": "undefined/articles/mywife",
+            "title": "我的妻子",
+            "summary": "婚姻5载后，有感而发",
+            "date_modified": "2023-06-05T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
             "id": "undefined/articles/share_bloger",
-            "content_html": "<ul>\n<li>\n<p><a href=\"http://www.ruanyifeng.com/blog/\">阮一峰的网络日志</a>，每周的科技周刊必看，许多科技新闻都是从那里学到的。</p>\n</li>\n<li>\n<p><a href=\"https://www.zhangxinxu.com/\">张鑫旭</a>，CSS大神，我在培训的时候，张晓飞老师推荐过，买过他的CSS世界，加过大神的微信，最近在读他在掘金出版的小册《技术写作指南》。</p>\n</li>\n<li>\n<p><a href=\"https://cjting.me/2020/07/01/douyu-crawler-and-font-anti-crawling/\">斗鱼关注人数爬取</a> 通过html里面的字体样式，反解析出真实的关注人数，这个思路很有意思。</p>\n</li>\n<li>\n<p><a href=\"https://www.lionad.art/articles/\">为什么我要写博客</a>，为还在坚持输出博客的人点赞。</p>\n</li>\n<li>\n<p><a href=\"https://lutaonan.com/\">Randy&#x27;s Blog</a>，在twitter看到的，微软大佬，大一退学，很勇敢，他未来的妄想是参与推动中国的民主化建设，希望他能实现。</p>\n</li>\n<li>\n<p><a href=\"https://me.revome.cn/\">赵纯想</a>，现在这个博客就从作者那里copy过来的，感谢作者。</p>\n</li>\n<li>\n<p><a href=\"https://www.justzht.com/all/\">justzht</a>，log list形式的blog，很独特。</p>\n</li>\n<li>\n<p><a href=\"https://imququ.com/\">imququ</a>，专注web开发</p>\n</li>\n<li>\n<p><a href=\"https://www.barretlee.com/entry/\">小胡子哥的个人网站</a>，二胎女儿刚出生，富有想法，乐于分享。</p>\n</li>\n</ul>\n<p>我发现还在坚持在Web写博客的人，都是理想主义者，包括我自己。大牛的博客GUI并不是很花哨，全是实在实在的文字，真是学到了</p>",
+            "content_html": "<blockquote>\n<p>纯技术</p>\n</blockquote>\n<ul>\n<li>\n<p><a href=\"http://www.ruanyifeng.com/blog/\">阮一峰的网络日志</a>，每周的科技周刊必看，许多科技新闻都是从那里学到的。</p>\n</li>\n<li>\n<p><a href=\"https://www.zhangxinxu.com/\">张鑫旭</a>，CSS大神，我在培训的时候，张晓飞老师推荐过，买过他的CSS世界，加过大神的微信，最近在读他在掘金出版的小册《技术写作指南》。</p>\n</li>\n<li>\n<p><a href=\"https://cjting.me/2020/07/01/douyu-crawler-and-font-anti-crawling/\">斗鱼关注人数爬取</a> 通过html里面的字体样式，反解析出真实的关注人数，这个思路很有意思。</p>\n</li>\n<li>\n<p><a href=\"https://www.lionad.art/articles/\">为什么我要写博客</a>，为还在坚持输出博客的人点赞。</p>\n</li>\n<li>\n<p><a href=\"https://www.owenyoung.com/blog/basic-income/\">我要是有钱...</a>，想法不错！</p>\n</li>\n<li>\n<p><a href=\"https://lutaonan.com/\">Randy&#x27;s Blog</a>，在twitter看到的，微软大佬，大一退学，很勇敢，他未来的妄想是参与推动中国的民主化建设，希望他能实现。</p>\n</li>\n<li>\n<p><a href=\"https://me.revome.cn/\">赵纯想</a>，现在这个博客架构代码就从作者那里copy过来的，感谢作者。</p>\n</li>\n<li>\n<p><a href=\"https://www.justzht.com/all/\">justzht</a>，log list形式的blog，很独特。</p>\n</li>\n<li>\n<p><a href=\"https://imququ.com/\">imququ</a>，专注web开发</p>\n</li>\n<li>\n<p><a href=\"https://www.barretlee.com/entry/\">小胡子哥的个人网站</a>，二胎女儿刚出生，富有想法，乐于分享。</p>\n</li>\n<li>\n<p><a href=\"https://world.hey.com/jason/effective-productive-acfa210d\">Effective &gt; Productive</a>, 为什么老外做的<a href=\"https://37signals.com\">产品</a>，都这么棒，他们总在创造价值。</p>\n</li>\n<li>\n<p><a href=\"https://blog.wildcat.io/2023/12/2023-thoughts-zh/\">不寻常的2023</a></p>\n</li>\n<li>\n<p><a href=\"https://sxyz.blog/\">三咲雅 · Misaki Masa </a></p>\n</li>\n</ul>\n<blockquote>\n<p>神</p>\n</blockquote>\n<ul>\n<li>\n<p><a href=\"http://paulgraham.com/selfindulgence.html\">paulgraham, How to Lost Time and Moneny</a>，我见过最复古的博客</p>\n</li>\n<li>\n<p><a href=\"https://www.getairchat.com/naval/howtogetrich?r=D7B64E33-F81E-4B60-A40C-0013A9BB6FCD\">Naval, How to Get Rich</a>,Speak truth, feel love, be free.</p>\n</li>\n</ul>\n<p>我发现还在坚持在Web写博客的人，都是理想主义者，包括我自己。大牛的博客GUI并不是很花哨，全是实在实在的文字，真是学到了</p>",
             "url": "undefined/articles/share_bloger",
             "title": "分享我最近发现的宝藏博主",
             "summary": "阅读别人的博客，真是越来越觉得自己的知识面太窄了，这里分享一些我最近发现的宝藏博主，希望能给你带来一些启发。",
@@ -20,8 +163,19 @@
             }
         },
         {
+            "id": "undefined/articles/endof2022",
+            "content_html": "<hr/>\n<p>不知不觉，已经年底，大街小巷都在等待农历新年的到来，人们穿新衣，放烟花，当然也少不了年终总结。\n以下这篇文章摘抄自陈枝辉律师的微博，我和陈律短暂在无讼共事过，他呕心7年，著作 《天同码》，我曾多次在天同见他\n挑灯夜战，为了完成著作最后的纠错，他封闭自己一年，不和家里人见面，错过侄女的婚礼，此种精神，甚是敬佩，今日摘抄他的文章，分享给大家。</p>\n<p>【律所工作心态与状态】</p>\n<p>因在律所负责自己业务团队，同时负责所内知识中心工作，需不时关注小伙伴工作状态，也会经常思考：律所工作，该有怎样的心态与状态？一些肤浅感悟，简单整理一下，与朋友分享或共勉：</p>\n<p>①【心智自由】一个走出大学校门的成年人，应对自己职业道路多少有些定位和规划。毕业后必须工作，并非天经地义，因为同学们都工作了，或不想让家里父母或亲戚埋怨，或是不好意思再向家里人伸手，以此心态踏入职场，外观上虽与其他职场人无异，但工作作为谋生手段、成年人理所当然应由社会提供工作单位的观念，会在漫长工作历程中潜移默化产生消极影响。没有自我提升规划与计划，没有对工作本质的理解与领悟，以为朝九晚五就是人生主旋律，是人生存在意义，一天两天，一月两月，一年两年，五年十年，温水青蛙，终日奔忙，转头碌碌。将单位工作每一天，当成在此处最后一天来过，保持随时离开能力，是心智自由一种境界。人群中的温暖、工作内容按部就班，均不应是工作带来的真正意义；工作内容能否帮助到最终接收对象解决问题，节省他人时间、精力，如同本人亲历，以独当一面方式为他人排忧解难，是能力，也是格局。</p>\n<p>②【情绪稳定】生活中无论多狂野，无论多苦大仇深，工作上应有简洁、高效作风，不夹杂与工作无关事务与情绪。人群中保持定力，专注于工作成果与效果，不畏难，不浮躁，不自怨自艾，不应将自己认为重大乃至天塌的家事或私事转化为团队大事。须知，每个人，无论路人或身边同事，都有自己需独立处理诸多大小事务，因工作在一起，勿将生活琐屑及情绪带入职场，勿因同声相求、同仇敌忾而在人群中结盟，以为抱团取暖，对他人及工作评判不因个人利益以及身边友朋随意附和而受影响。保持同理心，理解和尊重他人行事方式，相信他人也可能是其家人、亲友构成的人际生态中的顶梁柱和完美化身，只是你绌于接触、了解而已。做一个情绪稳定的人，不急刻躁竞，把工作上的事情处理好，把客户挠头事务用心化解，当为职业风范。</p>\n<p>③【创造力工作】心智自由，理解工作不止是俗浅的谋生手段，而是自我成就、自我愉悦和实现过程，自然会以能动方式处理工作。将踩点打卡上下班视为心安无愧工作表现，是自我人格束缚的牢笼桎梏。真正的时间表，是不断挑战自己、突破自己，尽最大努力将手头事做到完美，而非自我或他人对某一具体事项的计时设限。踏实工作、用心工作、能动工作，才是此世界不断趋向美好的动力源泉。不单是为别人工作，更应是为自己工作，在自己有限时空领域通过工作创造美好，是每个个体眼下对抗流水岁月、未来奔赴山海的起点与征途。</p>\n<p>④【时间规划】剩下的就是时间利用了。每个人都会向往闲适逸豫生活，海景椰风拂人心，斜曦余晖慰倦尘，但凡财富自由，相信没几个人能继续长时埋首繁牍、沉湎牵心动肠事。当然，历经千帆，倦鸟思归，可能最后发现远方美景不是目的，美食也不是终点，自律的自由才更有璀璨光芒。无论穷富，工作或做事情都是可以并应当伴随一生之事，从中可深入探触到生命意义。与时间为友，不轻薄、不恐慌，当下及未来，都在时间刻度里。规划时间能力其实也是把控人生能力，如何过今天，映照出如何过一生模样。</p>\n<p>年轻时，惶惑人生两件事：婚姻、工作。因均需投入极大热情，均需非同一般的缘分才能发生及圆满。后来发现，轰轰烈烈不是爱情，震天动地也不是工作，日复一日的热爱和坚持，才是人生充盈真正密码。</p>\n<p><img src=\"/images/life/lunch.jpg\" alt=\"聚餐\"/></p>",
+            "url": "undefined/articles/endof2022",
+            "title": "2022年终",
+            "summary": "用文字记录生活",
+            "date_modified": "2023-01-11T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
             "id": "undefined/articles/vue_press_ui/brainstorm",
-            "content_html": "<p>————</p>\n<p>最近看了 纽约时报 一篇关于字节跳动的文章，<a href=\"https://cn.nytimes.com/technology/20221227/tiktok-us-china-diplomacy/\">《TikTok的成功与宿命：夹在中美之间的时代产物》</a> <code>备注：点击链接可以阅读文章，但是一些图片看不到，可能需要科学上网</code>，我觉得这篇文章把张一鸣分析的很透彻，\n看了这篇文章，对张一鸣更加崇拜了，他的一些观点让我受益匪浅，下面分享一下对我触动比较深的想法</p>\n<ol>\n<li>尽可能少的让用户做选择</li>\n<li>以前的产品都是用户选择自己信息，现在要让信息去寻找用户，而不是反过来</li>\n<li>将人与信息连接起来</li>\n</ol>\n<p>简单记录一下我和亚坤的Brain Storm 记录，希望有机会我们也可以付出实践</p>\n<h2>Log list</h2>\n<h3>1. 做一款记录孩子成长里程碑的软件（2022年12月28日）</h3>\n<ul>\n<li>亚坤：\n我的想法是家长可以给孩子制定一系列成长路线图，没达成一个里程碑，家长可以向孩子发放一枚勋章</li>\n<li>我：\n我在你的想法延伸一下，只有产品做到，装上咱们app或者戴上一些可穿戴设备，就能智能识别 孩子当前处于哪个里程碑，这样才是比较酷的，也有卖点</li>\n</ul>\n<h3>2. 做一款能根据孩子哭声，识别孩子需求的软件（2022年12月28日）</h3>\n<ul>\n<li>我：\n可以做一个统计婴儿哭泣声音的大数据库，然后分门别类，根据婴儿的哭泣声，推断出不同需求</li>\n</ul>\n<h3>3. 做一个留言系统（2022年11月23日）</h3>\n<ul>\n<li>亚坤：\n想做一个留言系统，因为公众号不能留言</li>\n</ul>\n<h3>4. 做一个英文词典app（2022年11月23日）</h3>\n<ul>\n<li>我：\n想做一个词典app，每个单词下面用户都可以评论，分享自己当时怎么学习这个单词的，分享关于这个英文单词的梗</li>\n</ul>",
+            "content_html": "<p>————</p>\n<p>最近看了 纽约时报 一篇关于字节跳动的文章，<a href=\"https://cn.nytimes.com/technology/20221227/tiktok-us-china-diplomacy/\">《TikTok的成功与宿命：夹在中美之间的时代产物》</a> <code>备注：点击链接可以阅读文章，但是一些图片看不到，可能需要科学上网</code>，我觉得这篇文章把张一鸣分析的很透彻，\n看了这篇文章，对张一鸣更加崇拜了，他的一些观点让我受益匪浅，下面分享一下对我触动比较深的想法</p>\n<ol>\n<li>尽可能少的让用户做选择</li>\n<li>以前的产品都是用户选择自己信息，现在要让信息去寻找用户，而不是反过来</li>\n<li>将人与信息连接起来</li>\n</ol>\n<p>简单记录一下我和亚坤的Brain Storm 记录，希望有机会我们也可以付出实践</p>\n<h2>Log list</h2>\n<h3>1. 做一款记录孩子成长里程碑的软件（2022年12月28日）</h3>\n<ul>\n<li>亚坤：\n我的想法是家长可以给孩子制定一系列成长路线图，没达成一个里程碑，家长可以向孩子发放一枚勋章</li>\n<li>我：\n我在你的想法延伸一下，只有产品做到，装上咱们app或者戴上一些可穿戴设备，就能智能识别 孩子当前处于哪个里程碑，这样才是比较酷的，也有卖点</li>\n</ul>\n<h3>2. 做一款能根据孩子哭声，识别孩子需求的软件（2022年12月28日）</h3>\n<ul>\n<li>我：\n可以做一个统计婴儿哭泣声音的大数据库，然后分门别类，根据婴儿的哭泣声，推断出不同需求</li>\n</ul>\n<h3>3. 做一个留言系统（2022年11月23日）</h3>\n<ul>\n<li>亚坤：\n想做一个留言系统，因为公众号不能留言</li>\n</ul>\n<h3>4. 做一个英文词典app（2022年11月23日）</h3>\n<ul>\n<li>我：\n想做一个词典app，每个单词下面用户都可以评论，分享自己当时怎么学习这个单词的，分享关于这个英文单词的梗</li>\n</ul>\n<h3>5. 我想搞一个识别人类梦话声音的 单片机或者手表，加上AI程序，如果是噩梦，可以叫醒 (2025年6月10日)</h3>\n<h2>优秀作品参考</h2>\n<ol>\n<li><a href=\"https://apps.apple.com/us/app/%E9%97%AA%E9%97%AA%E7%AB%A5%E7%94%BB-%E5%84%BF%E7%AB%A5%E7%94%BB%E7%94%BB%E4%BD%9C%E5%93%81%E6%89%AB%E6%8F%8F-%E5%8A%A0%E7%94%BB%E6%A1%86%E8%BE%B9%E6%A1%86%E8%A3%85%E8%A3%B1-%E5%9C%A8%E7%BA%BF%E7%94%BB%E5%B1%95voun/id6472695471?l=zh-Hans-CN\">闪闪童画</a></li>\n</ol>\n<ul>\n<li>亚坤：更专注一个小的点更容易做成东西</li>\n</ul>\n<p><img src=\"/images/life/paint.jpg\" alt=\"闪闪童画\"/></p>\n<ol start=\"2\">\n<li><a href=\"https://capwords.app/\">capwords</a></li>\n</ol>\n<ul>\n<li>Learn a new language from familiar things</li>\n</ul>",
             "url": "undefined/articles/vue_press_ui/brainstorm",
             "title": "分享和亚坤的一些想法",
             "summary": "简单记录一下我和亚坤的Brain Storm 记录，希望有机会我们也可以付出实践",
@@ -81,6 +235,28 @@
             "title": "我的求学之路",
             "summary": "在尚硅谷",
             "date_modified": "2018-05-29T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
+            "id": "undefined/articles/10years",
+            "content_html": "<p>首先，很感谢网易这十年还保留着我青春时代的记忆。今天翻看以前的博客，感慨颇多。08年我写的邂逅这篇日志，文字里面描述的人物，我想了很久，几乎忘却他是谁了！</p>\n<p>又或许这篇日志，是我从《读者》上面摘抄的？因为高中那时候，我几乎疯狂的每月都要买这本杂志，为了验证这篇博客的来源，我复制了文章的首行，去百度里面查找一下快照，结果很诧异！</p>\n<p><img src=\"/images/net163/1.jpeg\" alt=\"net163\"/></p>\n<p>十年，我们能做多少事情？太多了，我现在去回忆都记不清，幸好有互联网，幸好我当时记录下来这些文字。下面这张图是我当时刚学会上网，开通网易博客时，网易给我发送的邮件。</p>\n<p><img src=\"/images/net163/2.jpeg\" alt=\"net163\"/></p>\n<p>我的第一次长途旅行，呵呵，当时看起来属实很天真。我记得当时也是我第一次坐火车，目的地是保定，临行前我和同村的小伙伴富强在网吧候车。那年高二，对未来充满了希望！</p>\n<p><img src=\"/images/net163/3.jpeg\" alt=\"net163\"/></p>\n<p>我第一次在互联网上认真写作，也是我的处女作。可笑的是，当时我竟然可耻的在下面给自己评论说：“写的很好”！</p>\n<p>真不觉得害臊吗，看来不要脸是从那时就开始了....</p>\n<p><img src=\"/images/net163/4.jpeg\" alt=\"net163\"/></p>\n<p>私以为，网易在互联网公司里面算是良心的了，一直这么默默无闻。我在腾讯社交软件QQ空间的发声相对较少了，最早是刚接触，对这些新鲜的东西很是痴迷，因为你生活中每一个想法和创意都可以随时分享给朋友们，下面的图片是一个年少轻狂，口无遮拦的家伙！</p>\n<p><img src=\"/images/net163/5.jpeg\" alt=\"net163\"/>\n<img src=\"/images/net163/6.jpeg\" alt=\"net163\"/></p>\n<blockquote>\n<p>此博客最开始记录在网易博客，因为网易博客关闭，故搬迁至此。</p>\n</blockquote>",
+            "url": "undefined/articles/10years",
+            "title": "十年",
+            "summary": "网易，博客，青春",
+            "date_modified": "2016-03-22T00:00:00.000Z",
+            "author": {
+                "name": "Yang"
+            }
+        },
+        {
+            "id": "undefined/articles/todo",
+            "content_html": "<hr/>\n<ol>\n<li>\n<p>北海之旅</p>\n<p>-- 通过观察日本同事，发现与我们的不同</p>\n</li>\n<li>\n<p>日语学习,日本人是拿着汉字照抄啊</p>\n<p>-- Kana Development Chart</p>\n</li>\n</ol>\n<p><img src=\"/images/life/kana.png\" alt=\"kana\"/></p>",
+            "url": "undefined/articles/todo",
+            "title": "待办",
+            "summary": "接下来要写的博客",
+            "date_modified": "1991-06-14T00:00:00.000Z",
             "author": {
                 "name": "Yang"
             }
