@@ -61,46 +61,37 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              Web开发者。杨勇海
+              Web Developer. Yang
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                我对编程感兴趣。
+                I am interested in programming.
               </p>
               <p>
-                Talk is cheap, just show your code. 用软件驱动硬件，再用硬件改变世界。
+                Talk is cheap, just show your code. Use software to drive hardware, and then use hardware to change the world.
               </p>
               <p>
                 Good Good Study.
               </p>
               <p>
-                欢迎光临小站
+                Welcome to my site.
               </p>
             </div>
           </div>
           <div className="lg:pl-20">
             <ul role="list">
               <SocialLink className='pt-3' href="https://v.douyin.com/SaGYYxc/" icon={TikTokIcon}>
-                在 抖音 上关注我
+                Follow me on TikTok
               </SocialLink>
               <SocialLink className='pt-3' href="https://space.bilibili.com/6580304/" icon={BiliBiliIcon}>
-                在 Bilibili 上关注我
+                Follow me on Bilibili
               </SocialLink>
-              <SocialLink className='pt-3' href="https://twitter.com/mryang123456" icon={TwitterIcon}>
-                在Twitter 上关注我
+              <SocialLink className='pt-3' href="https://x.com/iamfolowerdog" icon={TwitterIcon}>
+                Follow me on Twitter
               </SocialLink>
               <SocialLink className='pt-3' href="https://github.com/iamflowerdog" icon={GitHubIcon}>
-                在Github上关注我
+                Follow me on GitHub
               </SocialLink>
-              {/* <SocialLink href="#" icon={InstagramIcon} className="mt-4">
-                Follow on Instagram
-              </SocialLink>
-              <SocialLink href="#" icon={GitHubIcon} className="mt-4">
-                Follow on GitHub
-              </SocialLink>
-              <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
-                Follow on LinkedIn
-              </SocialLink> */}
               <SocialLink
                 href="mailto:spencer@planetaria.tech"
                 icon={MailIcon}

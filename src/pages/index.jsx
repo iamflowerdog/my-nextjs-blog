@@ -56,11 +56,11 @@ export default function Home({ articles }) {
 
       <Head>
         <title>
-        如何做一个前端开发 - 生活，随想和博客
+          Web Developer-Yang
         </title>
         <meta
-          name="如何做一个前端开发"
-          content="如何做一个前端开发"
+          name="how to be a front-end developer"
+          content="how to be a front-end developer"
         />
       </Head>
       

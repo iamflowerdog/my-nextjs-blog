@@ -21,12 +21,12 @@ export function Footer() {
           <Container.Inner>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div className="flex gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                <NavLink href="/">首页</NavLink>
-                <NavLink href="/about">关于我</NavLink>
-                <NavLink href="/articles">技术</NavLink>
-                <NavLink href="/life">生活</NavLink>
-                <NavLink href="/projects">产品</NavLink>
-                <NavLink href="/uses">更多</NavLink>
+                <NavLink href="/">Home</NavLink>
+                <NavLink href="/about">About</NavLink>
+                <NavLink href="/articles">Tech</NavLink>
+                <NavLink href="/life">Life</NavLink>
+                <NavLink href="/projects">Projects</NavLink>
+                <NavLink href="/uses">More</NavLink>
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
                 &copy; {new Date().getFullYear()} 杨勇海. 版权所有 <Link href='https://beian.miit.gov.cn/#/Integrated/recordQuery' className = ' text-blue-400'>

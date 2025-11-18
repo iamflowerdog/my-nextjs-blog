@@ -21,7 +21,7 @@ function Article({ article }) {
           {formatDate(article.date)}
         </Card.Eyebrow>
         <Card.Description>{article.description}</Card.Description>
-        <Card.Cta>阅读全文</Card.Cta>
+        <Card.Cta>Read more</Card.Cta>
       </Card>
       <Card.Eyebrow
         as="time"
@@ -38,14 +38,14 @@ export default function ArticlesIndex({ articles }) {
   return (
     <>
       <Head>
-        <title>文章 - 技术博客</title>
+        <title>Articles - Tech Blog</title>
         <meta
           name="description"
-          content="杨勇海技术博客"
+          content="Yang's tech blog articles."
         />
       </Head>
       <SimpleLayout
-        title="文章 - 技术博客"
+        title="Articles - Tech Blog"
         intro="Never Settle"
       >
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">

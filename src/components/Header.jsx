@@ -83,7 +83,7 @@ function MobileNavigation(props) {
   return (
     <Popover {...props}>
       <Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
-        菜单
+        Menu
         <ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
       </Popover.Button>
       <Transition.Root>
@@ -116,17 +116,17 @@ function MobileNavigation(props) {
                 <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
               </Popover.Button>
               <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                导航
+                Navigation
               </h2>
             </div>
             <nav className="mt-6">
               <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
-                <MobileNavItem href="/">首页</MobileNavItem>
-                <MobileNavItem href="/about">关于我</MobileNavItem>
-                <MobileNavItem href="/articles">技术</MobileNavItem>
-                <MobileNavItem href="/life">生活</MobileNavItem>
-                <MobileNavItem href="/projects">产品</MobileNavItem>
-                <MobileNavItem href="/uses">更多</MobileNavItem>
+                <MobileNavItem href="/">Home</MobileNavItem>
+                <MobileNavItem href="/about">About</MobileNavItem>
+                <MobileNavItem href="/articles">Tech</MobileNavItem>
+                <MobileNavItem href="/life">Life</MobileNavItem>
+                <MobileNavItem href="/projects">Projects</MobileNavItem>
+                <MobileNavItem href="/uses">More</MobileNavItem>
               </ul>
             </nav>
           </Popover.Panel>
@@ -163,12 +163,12 @@ function DesktopNavigation(props) {
   return (
     <nav {...props}>
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
-        <NavItem href="/">首页</NavItem>
-        {/* <NavItem href="/about">关于我</NavItem> */}
-        <NavItem href="/articles">技术</NavItem>
-        <NavItem href="/life">生活</NavItem>
-        <NavItem href="/projects">产品</NavItem>
-        <NavItem href="/uses">更多</NavItem>
+        <NavItem href="/">Home</NavItem>
+        <NavItem href="/about">About</NavItem>
+        <NavItem href="/articles">Tech</NavItem>
+        <NavItem href="/life">Life</NavItem>
+        <NavItem href="/projects">Projects</NavItem>
+        <NavItem href="/uses">More</NavItem>
       </ul>
     </nav>
   )
