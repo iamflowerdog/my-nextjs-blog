@@ -4,7 +4,7 @@ import { ArticleLayout } from '@/components/ArticleLayout'
 export const meta = {
   author: 'Yang',
   date: '2026-03-24',
-  title: '手把手教你部署OpenClaw，并添加到企业微信群内',
+  title: 'OpenClaw 实战部署：从 Ubuntu 安装到接入企业微信机器人',
   description:
     'OpenClaw，小龙虾，企业微信机器人',
 }
@@ -12,11 +12,11 @@ export const meta = {
 export default (props) => <ArticleLayout meta={meta} {...props} />
 
 
-很久没有更新技术文章了，再不更新，大家都快忘记了，我是做技术的人了。
+很久没更新技术文章了，再不写点东西，大家可能都要忘了我是干技术的了。
 
 最近养“小龙虾”很火。这个“小龙虾”的真实名字是 OpenClaw，因为这个项目的 logo 就是一只龙虾，所以大家都形象地叫它“龙虾”。
 
-下面分享我最近在 Ubuntu 24.04 虚拟机上安装 OpenClaw 的过程。
+这篇文章记录我最近在 Ubuntu 24.04 虚拟机上安装 OpenClaw，并接入企业微信机器人的完整过程。按步骤走，基本就能复现。
 
 
 
@@ -26,6 +26,8 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
 在 Terminal 执行：`curl -fsSL https://openclaw.ai/install.sh | bash`
 
 等待下载安装完成，可能需要较长时间。
+
+> 小提示：如果网络波动，安装可能中断，建议重新执行一次命令确认是否完整安装。
 
 ### 2. 测试是否安装成功
 
@@ -37,8 +39,10 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
     ```
         echo 'export PATH=$PATH:/home/pvc/.npm-global/bin' >> ~/.bashrc
         source ~/.bashrc
-
     ```
+
+    完成后重新打开一个终端窗口，再执行一次 `openclaw --version` 验证。
+
   
 ### 3. 配置 OpenClaw
 
@@ -69,6 +73,8 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
      `qwen3.5-plus`
 
     以上输入完成后，会进行一段时间校验。成功后会有提示，再继续下一步。
+
+  配置成功后，OpenClaw 的核心能力就已经可以用了。
 
 
 ### 4. 访问页面
@@ -101,6 +107,8 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
   
 然后在你电脑浏览器访问 `http://127.0.0.1:18789/#token=xxx` 即可。
 
+到这里，你就可以在浏览器里正常使用 OpenClaw 控制台了。
+
 
 ### 5. 模型更换
 
@@ -114,6 +122,8 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
 
 - API Key：
   [Kimi API Key 创建文档参考](https://platform.moonshot.cn/console/api-keys)
+
+同理，你也可以按这个方式继续添加其他模型供应商。
 
 ### 6. 关联企业微信机器人
 
@@ -132,6 +142,16 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
 企业微信绑定成功后，就可以愉快地和自己的小龙虾聊天了。这个机器人可以添加到群里，不过按我目前的测试结果，绑定企业微信的机器人只响应我个人的指令。
 
   ![wecom_claw](/images/tech/wecom_claw.png)
+
+
+### 7. 踩坑与建议
+
+- 安装后命令不可用，优先检查 PATH 是否包含 npm 全局安装目录。
+- 首次启动看不到页面，先确认 `openclaw dashboard` 输出的端口和 token 是否正确。
+- 局域网访问失败，大多数情况是没有做 `ssh -L` 端口转发。
+- 配置模型时报错，优先检查 API Base URL、API Key 和模型 ID 三项是否一一对应。
+
+如果你也在折腾本地 AI 助手，OpenClaw + 企业微信这套组合值得一试：部署成本不高，上手速度很快，日常用起来也比较顺手。
 
 
 
