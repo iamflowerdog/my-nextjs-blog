@@ -1,0 +1,137 @@
+
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Yang',
+  date: '2026-03-24',
+  title: '手把手教你部署OpenClaw，并添加到企业微信群内',
+  description:
+    'OpenClaw，小龙虾，企业微信机器人',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+
+很久没有更新技术文章了，再不更新，大家都快忘记了，我是做技术的人了。
+
+最近养“小龙虾”很火。这个“小龙虾”的真实名字是 OpenClaw，因为这个项目的 logo 就是一只龙虾，所以大家都形象地叫它“龙虾”。
+
+下面分享我最近在 Ubuntu 24.04 虚拟机上安装 OpenClaw 的过程。
+
+
+
+
+### 1. 下载并安装
+
+在 Terminal 执行：`curl -fsSL https://openclaw.ai/install.sh | bash`
+
+等待下载安装完成，可能需要较长时间。
+
+### 2. 测试是否安装成功
+
+- 先执行 `openclaw --version` 检查是否安装成功。成功时会显示类似 `OpenClaw 2026.3.13 (61d171a)`。
+- 如果提示 `not found`，有可能是 OpenClaw 已安装成功，只是命令不在全局 PATH 中。
+  - 执行 `npm config get prefix` 查看 npm 全局安装目录。
+  - 如果是 `/home/pvc/.npm-global`，执行下面的步骤：
+
+    ```
+        echo 'export PATH=$PATH:/home/pvc/.npm-global/bin' >> ~/.bashrc
+        source ~/.bashrc
+
+    ```
+  
+### 3. 配置 OpenClaw
+
+`openclaw onboard --install-daemon`
+
+执行完上面的命令后，会出现安装指引流程，通过键盘的 ⬆️ ⬇️ ↩️ 按键进行操作。
+
+这是我当时的选择：
+![openclaw](/images/tech/openclaw.png)
+
+如果配置过程中想回到上一步，可以按 `Ctrl + C` 终止安装，然后再次执行 `openclaw onboard --install-daemon` 重新配置。
+
+
+- 模型选择
+    - Model/auth provider:  
+    `Custom Provider`
+    - API Base URL:  
+    `https://dashscope.aliyuncs.com/compatible-mode/v1`
+    - How do you want to provide this API key?:  
+    `Paste API key now`
+    - API Key (leave blank if not required): 
+     此处可参考 [阿里云 API Key 获取方法](https://bailian.console.aliyun.com/cn-beijing?spm=5176.12818093_47.overview_recent.1.1de916d0lvRWl5&tab=api#/api)
+    
+    - Endpoint compatibility（接口兼容格式，这里选择 OpenAI-compatible）
+    `OpenAI-compatible`
+
+    - Model ID（去阿里百炼模型列表里复制一个模型 ID，这里选择 `qwen3.5-plus`）
+     `qwen3.5-plus`
+
+    以上输入完成后，会进行一段时间校验。成功后会有提示，再继续下一步。
+
+
+### 4. 访问页面
+
+部署成功后，在 Terminal 输入 `openclaw dashboard`。
+
+  ```
+    Dashboard URL: http://127.0.0.1:18789/#token=xxx
+    Copy to clipboard unavailable.
+    No GUI detected. Open from your computer:
+    ssh -N -L 18789:127.0.0.1:18789 pvc@192.168.0.123
+    Then open:
+    http://localhost:18789/
+    http://localhost:18789/#token=xxx
+    Docs:
+    https://docs.openclaw.ai/gateway/remote
+    https://docs.openclaw.ai/web/control-ui
+    [wecom] v1.0.13 loaded
+
+  ```
+  
+复制 `http://127.0.0.1:18789/#token=xxx`，在当前 Ubuntu 24.04 机器的浏览器中打开，就可以看到 Web GUI 页面。
+
+
+这里还有一个重要信息：当前这个 GUI 页面默认只能在宿主机访问，局域网内其他机器无法直接访问，需要通过 `ssh -L` 端口转发。
+
+这时，在你自己的电脑 Terminal 上输入：
+
+  `ssh -N -L 18789:127.0.0.1:18789 pvc@192.168.0.123`
+  
+然后在你电脑浏览器访问 `http://127.0.0.1:18789/#token=xxx` 即可。
+
+
+### 5. 模型更换
+
+
+在 OpenClaw 的配置文件中，可以修改或新增模型：`/home/pvc/.openclaw`。
+
+这里我新增了 Kimi 的模型：
+
+- kimi中国的 API Base URL:  
+    `https://api.moonshot.cn/v1`
+
+- API Key：
+  [Kimi API Key 创建文档参考](https://platform.moonshot.cn/console/api-keys)
+
+### 6. 关联企业微信机器人
+
+   [企业微信参考](https://open.work.weixin.qq.com/help2/pc/21657#%E4%B8%80%E3%80%81%E6%8E%A5%E5%85%A5%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87)
+   
+  1. 安装企微插件：打开本地终端，依次执行如下命令：
+
+  `npx -y @wecom/wecom-openclaw-cli install`
+
+  2. 企微扫码接入：选择扫码接入，并使用企业微信扫描二维码。
+
+  3. 一键创建机器人：无需更多配置，只需点击一键创建机器人。
+
+  4. 自动接入 OpenClaw：成功创建机器人后，无需手动配对，即可自动接入本地 OpenClaw。你可以点击「前往使用」开始和小龙虾对话。
+
+企业微信绑定成功后，就可以愉快地和自己的小龙虾聊天了。这个机器人可以添加到群里，不过按我目前的测试结果，绑定企业微信的机器人只响应我个人的指令。
+
+  ![wecom_claw](/images/tech/wecom_claw.png)
+
+
+
